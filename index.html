@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" />
+</head>
+
+<body>
+    <section class=page>
+        <div class="card">
+            <div class="toggle"></div>
+            <div class="content">
+                <div class="profile">
+                    <div class="image">
+                        <img src="profile.png">
+                    </div>
+                    <div class="text">
+                        <h3>Christo Todorov
+                            <br>
+                            <span>Full stack Developer</span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="socials">
+                    <ul class="info">
+                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        <li><a href="https://github.com/Chroxify"><i class="fa fa-github" aria-hidden="true"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const mode = document.querySelector('.page');
+        const toggle = document.querySelector('.toggle');
+        toggle.onclick = function () {
+            mode.classList.toggle('light')
+        }
+    </script>
+</body>
+
+</html>

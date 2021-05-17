@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;    
+}
+section
+{
+    position: relative;
+    background: #1E2228; /*or #24292d*/
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.5s;
+}
+section.light
+{
+    background: #f0f8ff;
+}
+section .card
+{
+    position:  relative;
+    width: 300px;
+    height: 380px;
+    background: #323840;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.5s;
+}
+section.light .card
+{
+    background: #fff;
+}
+section .card .content,
+section .card .profile
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+flex-direction: column;
+}
+section .card .profile .image
+{
+    position: relative;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 15px;
+
+}
+section .card .profile .image img
+{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+section .card .profile .text h3
+{
+    font-weight: 500;
+    font-size: 1.4em;
+    line-height: 1.2em;
+    text-align: center;
+    color: #2fa1ff;
+
+}
+section .card .profile .text h3 span
+{
+    font-weight: 400;
+    color: #ccc;
+    font-size: 0.75em;
+}
+section.light .profile .text h3 span
+{
+    color: #777;
+}
+section .card .socials .info
+{
+    display: flex;
+    margin-top: 15px;
+}
+section .card .socials .info li
+{
+    list-style: none;
+}
+section .card .socials .info li a
+{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #404852;
+    color: #2fa1ff;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: 0.5s;
+}
+section.light .card .socials .info li a
+{
+    background: #e9f5ff;
+}
+section .card .socials .info li a:hover
+{
+    color: #fff;
+}
+section .card .socials .info li a .fa
+{
+    position: relative;
+    z-index: 1000;
+}
+section .card .socials .info li a:before
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #2fa1ff;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.5s;
+}
+section .card .socials .info li a:hover:before
+{
+    transform: scale(1);
+}
+.toggle
+{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #404852;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+section.light .toggle
+{
+    background: #e9f5ff;
+}
+.toggle:before
+{
+    content: '\f186';
+    font-family: fontAwesome;
+    color: #2fa1ff;
+}
+section.light .toggle:before
+{
+    content: '\f185';
+}
