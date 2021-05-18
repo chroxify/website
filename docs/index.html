@@ -15,7 +15,7 @@
             <div class="content">
                 <div class="profile">
                     <div class="image">
-                        <img src="image/profile.png">
+                        <img src="profile.png">
                     </div>
                     <div class="text">
                         <h3>Christo Todorov
@@ -26,10 +26,10 @@
                 </div>
                 <div class="socials">
                     <ul class="info">
-                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        <li id="user"><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                         <li><a href="https://github.com/Chroxify"><i class="fa fa-github" aria-hidden="true"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                        <li id="contact"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -40,6 +40,12 @@
         const toggle = document.querySelector('.toggle');
         toggle.onclick = function () {
             mode.classList.toggle('light')
+        }
+    </script>
+    <script>
+        const contact = document.getElementById("contact");
+        contact.onclick = function () {
+            navigator.clipboard.writeText("chroxify@gmail.com");
         }
     </script>
 </body>
