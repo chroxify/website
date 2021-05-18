@@ -51,6 +51,7 @@ section .card .profile .image
     height: 120px;
     overflow: hidden;
     border-radius: 50%;
+    margin-top: 30px;
     margin-bottom: 15px;
 
 }
@@ -85,6 +86,55 @@ section .card .profile .text h3 span
 section.light .profile .text h3 span
 {
     color: #777;
+}
+section .card .socials .tooltip0
+{
+    position: relative;
+    width: 103px;
+    top: 13px;
+    left: 80px;
+    background: #404852;   
+    font-size: 15px;
+    color: #2fa1ff;
+    padding: 10px 18px;
+    border-radius: 25px;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: opacity 0.2s ease-in;
+       -moz-transition: opacity 0.2s ease-in;
+        -ms-transition: opacity 0.2s ease-in;
+         -o-transition: opacity 0.2s ease-in;
+            transition: opacity 0.2s ease-in;
+}
+section .card .socials .tooltip1
+{
+    position: relative;
+    width: 103px;
+    top: 13px;
+    left: 80px;
+    background: #404852;   
+    font-size: 15px;
+    color: #2fa1ff;
+    padding: 10px 18px;
+    border-radius: 25px;
+    opacity: 1;
+    pointer-events: auto;
+    -webkit-transition: opacity 0.2s ease-in;
+       -moz-transition: opacity 0.2s ease-in;
+        -ms-transition: opacity 0.2s ease-in;
+         -o-transition: opacity 0.2s ease-in;
+            transition: opacity 0.2s ease-in;
+}
+section .card .socials .tooltip1:before, .tooltip0:before
+{
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background: #404852;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
 }
 section .card .socials .info
 {

@@ -15,7 +15,7 @@
             <div class="content">
                 <div class="profile">
                     <div class="image">
-                        <img src="profile.png">
+                        <img src="image/profile.png">
                     </div>
                     <div class="text">
                         <h3>Christo Todorov
@@ -31,6 +31,7 @@
                         </li>
                         <li id="contact"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
                     </ul>
+                    <div class="tooltip0">E-Mail copied</div>
                 </div>
             </div>
         </div>
@@ -45,7 +46,11 @@
     <script>
         const contact = document.getElementById("contact");
         contact.onclick = function () {
+            document.querySelector(".tooltip0").className = 'tooltip1';
             navigator.clipboard.writeText("chroxify@gmail.com");
+            setTimeout(function () {
+                document.querySelector(".tooltip1").className = 'tooltip0';
+            }, 2000);
         }
     </script>
 </body>
