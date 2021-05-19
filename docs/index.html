@@ -47,10 +47,10 @@
         const contact = document.getElementById("contact");
         contact.onclick = function () {
             document.querySelector(".tooltip0").className = 'tooltip1';
-            navigator.clipboard.writeText("chroxify@gmail.com");
             setTimeout(function () {
                 document.querySelector(".tooltip1").className = 'tooltip0';
             }, 2000);
+            navigator.clipboard.writeText("chroxify@gmail.com");
         }
     </script>
 </body>
