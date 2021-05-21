@@ -87,6 +87,7 @@ section.light .profile .text h3 span
 {
     color: #777;
 }
+/*TODO Make tooltip code cleaner*/
 section .card .socials .tooltip0
 {
     position: relative;
@@ -135,6 +136,18 @@ section .card .socials .tooltip1:before, .tooltip0:before
     top: -5px;
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
+}
+section.light .card .socials .tooltip1:before, .tooltip0:before
+{
+    background: #e9f5ff;
+}
+section.light .card .socials .tooltip0
+{
+    background: #e9f5ff;
+}
+section.light .card .socials .tooltip1
+{
+    background: #e9f5ff;
 }
 section .card .socials .info
 {
