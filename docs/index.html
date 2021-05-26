@@ -11,48 +11,55 @@
 
 <body>
     <section class=page>
-        <div class="container">
-            <div class="card0">
-                <div class="front">
-                    <div class="toggle"></div>
-                    <div class="content">
-                        <div class="profile">
-                            <div class="image">
-                                <img src="image/profile.png">
+        <div class="desktop">
+            <div class="container">
+                <div class="card0">
+                    <div class="front">
+                        <div class="toggle"></div>
+                        <div class="content">
+                            <div class="profile">
+                                <div class="image">
+                                    <img src="image/profile.png">
+                                </div>
+                                <div class="text">
+                                    <h3>Christo Todorov
+                                        <br>
+                                        <span>Full stack Developer</span>
+                                    </h3>
+                                </div>
                             </div>
-                            <div class="text">
-                                <h3>Christo Todorov
-                                    <br>
-                                    <span>Full stack Developer</span>
-                                </h3>
+                            <div class="socials">
+                                <ul class="info">
+                                    <li id="aboutbtn"><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://github.com/Chroxify" target="_blank"><i class="fa fa-github"
+                                                aria-hidden="true"></i></a>
+                                    </li>
+                                    <li id="contact"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="tooltip">E-Mail copied</div>
                             </div>
-                        </div>
-                        <div class="socials">
-                            <ul class="info">
-                                <li id="aboutbtn"><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                                <li><a href="https://github.com/Chroxify" target="_blank"><i class="fa fa-github"
-                                            aria-hidden="true"></i></a>
-                                </li>
-                                <li id="contact"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
-                                </li>
-                            </ul>
-                            <div class="tooltip">E-Mail copied</div>
                         </div>
                     </div>
-                </div>
-                <div class="back">
-                    <div class="backbtn" id="backbtn"></div>
-                    <div class="content" id="contentback">
-                        <div class="text">
-                            <h3>About Me</h3>
-                            <br>
-                            <span>My name is Christo Todorov and I am a Full Stack web and app developer from Stuttgart,
-                                Germany.<br>Some of the main languages I have experience with are Python, Dart, Java and
-                                Javascript.</span>
+                    <div class="back">
+                        <div class="backbtn" id="backbtn"></div>
+                        <div class="content" id="contentback">
+                            <div class="text">
+                                <h3>About Me</h3>
+                                <br>
+                                <span>My name is Christo Todorov and I am a Full Stack web and app developer from
+                                    Stuttgart,
+                                    Germany.<br>Some of the main languages I have experience with are Python, Dart, Java
+                                    and
+                                    Javascript.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="mobile">
+            <h3>Mobile View is coming soon...</h3>
         </div>
     </section>
     <script>
@@ -85,6 +92,19 @@
         test.onclick = function () {
             card.className = "card0";
         }
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // true for mobile device
+            const desktop = document.querySelector(".desktop");
+            desktop.style.opacity = '0'
+            desktop.style.pointerEvents = "none";
+        } else {
+            // false for not mobile device
+            const mobile = document.querySelector(".mobile");
+            mobile.style.opacity = '0'
+            mobile.style.pointerEvents = "none";
+        }
+
     </script>
 </body>
 
