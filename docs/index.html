@@ -11,7 +11,7 @@
 <body>
     <section class=page>
         <div class="container">
-            <div class="card">
+            <div class="card0">
                 <div class="front">
                     <div class="toggle"></div>
                     <div class="content">
@@ -28,7 +28,7 @@
                         </div>
                         <div class="socials">
                             <ul class="info">
-                                <li id="user"><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                <li id="aboutbtn"><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                                 <li><a href="https://github.com/Chroxify" target="_blank"><i class="fa fa-github"
                                             aria-hidden="true"></i></a>
                                 </li>
@@ -39,28 +39,41 @@
                         </div>
                     </div>
                 </div>
-                <div class="back">
+                <div class="back" id="test">
                     BACK
                 </div>
             </div>
         </div>
     </section>
     <script>
-        const mode = document.querySelector('.page');
-        const toggle = document.querySelector('.toggle');
+        const mode = document.querySelector(".page");
+        const toggle = document.querySelector(".toggle");
         toggle.onclick = function () {
             mode.classList.toggle('light')
         }
-    </script>
-    <script>
+
+
         const contact = document.getElementById("contact");
-        const tooltip = document.querySelector(".tooltip")
+        const tooltip = document.querySelector(".tooltip");
         contact.onclick = function () {
-            document.querySelector(".tooltip").style.opacity = '1';
+            tooltip.style.opacity = '1';
             setTimeout(function () {
-                document.querySelector(".tooltip").style.opacity = '0';
+                tooltip.style.opacity = '0';
             }, 2000);
             navigator.clipboard.writeText("chroxify@gmail.com");
+        }
+
+
+        const card = document.querySelector(".card0");
+        const about = document.getElementById("aboutbtn");
+        about.onclick = function () {
+            card.className = "card1";
+        }
+
+        const cardd = document.querySelector(".card1");
+        const test = document.getElementById("test");
+        test.onclick = function () {
+            card.className = "card0";
         }
     </script>
 </body>

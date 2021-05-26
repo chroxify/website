@@ -20,13 +20,13 @@ section.light
     background: #f0f8ff;
 }
 
-section .card 
+section .card0, .card1 
 {
     position: relative;
     width: 300px;
     height: 380px;
     transform-style: preserve-3d;
-    transition: all 0.3s linear;
+    transition: all 1s linear;
 }
 section .front,
 section .back
@@ -34,7 +34,7 @@ section .back
     position: absolute;
     width: 100%;
     height: 100%;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
     border-radius: 16px;
     display: flex;
     justify-content: center;
@@ -46,6 +46,7 @@ section .front
     backface-visibility: hidden;
     z-index: 2;
     transform-style: preserve-3d;
+    transition: background 0.5s;
 }
 section .back
 {
@@ -53,7 +54,7 @@ section .back
     z-index: 1;
     transform: rotateY(180deg);
 }
-section .container:hover .card {
+section .card1 {
     transform: rotateY(180deg);
 }
 section .container
@@ -61,23 +62,23 @@ section .container
     perspective: 1000px;  
 }
 
-section.light .card .front
+section.light .card0 .front, .light .card1 .front
 {
     background: #fff;
 }
-section.light .card .back
+section.light .card0 .back, .light .card1 .back
 {
     background: #fff;
 }
-section .card .front .content,
-section .card .front .profile
+section .card0 .front .content, .card1 .front .content,
+section .card0 .front .profile, .card1 .front .profile
 {
     display: flex;
     justify-content: center;
     align-items: center;
 flex-direction: column;
 }
-section .card .front .profile .image
+section .card0 .front .profile .image , .card1 .front .profile .image
 {
     position: relative;
     width: 120px;
@@ -88,7 +89,7 @@ section .card .front .profile .image
     margin-bottom: 15px;
 
 }
-section .card .front .profile .image img
+section .card0 .front .profile .image img, .card1 .front .profile .image img
 {
     position: absolute;
     top: 0%;
@@ -101,7 +102,7 @@ section .card .front .profile .image img
     user-select: none;
 }
 
-section .card .front .profile .text h3
+section .card0 .front .profile .text h3, .card1 .front .profile .text h3
 {
     font-weight: 500;
     font-size: 1.4em;
@@ -110,7 +111,7 @@ section .card .front .profile .text h3
     color: #2fa1ff;
 
 }
-section .card .front .profile .text h3 span
+section .card0 .front .profile .text h3 span, .card1 .front .profile .text h3 span
 {
     font-weight: 400;
     color: #ccc;
@@ -120,7 +121,7 @@ section.light .front .profile .text h3 span
 {
     color: #777;
 }
-section .card .front .socials .tooltip
+section .card0 .front .socials .tooltip, .card1 .front .socials .tooltip
 {
     position: relative;
     width: 103px;
@@ -139,7 +140,7 @@ section .card .front .socials .tooltip
          -o-transition: opacity 0.2s ease-in;
             transition: opacity 0.2s ease-in;
 }
-section .card .front .socials .tooltip:before
+section .card0 .front .socials .tooltip:before, .card1 .front .socials .tooltip:before
 {
     position: absolute;
     content: "";
@@ -150,24 +151,24 @@ section .card .front .socials .tooltip:before
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
 }
-section.light .card .front .socials .tooltip:before
+section.light .card0 .front .socials .tooltip:before, .light .card1 .front .socials .tooltip:before
 {
     background: #e9f5ff;
 }
-section.light .card .front .socials .tooltip
+section.light .card0 .front .socials .tooltip, .light .card1 .front .socials .tooltip
 {
     background: #e9f5ff;
 }
-section .card .front .socials .info
+section .card0 .front .socials .info, .card1 .front .socials .info
 {
     display: flex;
     margin-top: 20px;
 }
-section .card .front .socials .info li
+section .card0 .front .socials .info li, .card1 .front .socials .info li
 {
     list-style: none;
 }
-section .card .front .socials .info li a
+section .card0 .front .socials .info li a, .card1 .front .socials .info li a
 {
     position: relative;
     width: 50px;
@@ -183,20 +184,20 @@ section .card .front .socials .info li a
     font-size: 20px;
     transition: 0.5s;
 }
-section.light .card .front .socials .info li a
+section.light .card0 .front .socials .info li a, .light .card1 .front .socials .info li a
 {
     background: #e9f5ff;
 }
-section .card .front .socials .info li a:hover
+section .card0 .front .socials .info li a:hover, .card1 .front .socials .info li a:hover
 {
     color: #fff;
 }
-section .card .front .socials .info li a .fa
+section .card0 .front .socials .info li a .fa, .card1 .front .socials .info li a .fa
 {
     position: relative;
     z-index: 1000;
 }
-section .card .front .socials .info li a:before
+section .card0 .front .socials .info li a:before, .card1 .front .socials .info li a:before
 {
     content: '';
     position: absolute;
@@ -207,7 +208,7 @@ section .card .front .socials .info li a:before
     transform: scale(0);
     transition: 0.5s;
 }
-section .card .front .socials .info li a:hover:before
+section .card0 .front .socials .info li a:hover:before,  .card1 .front .socials .info li a:hover:before
 {
     transform: scale(1);
 }
