@@ -236,6 +236,10 @@ section .card0 .back .text span, .card1 .back .text span
     color: #ccc;
     font-size: 0.75em;
 }
+section.light .card0 .back .text span, .light .card1 .back .text span
+{
+    color: #777;
+}
 section .card0 .back .backbtn, .card1 .back .backbtn
 {
     position: absolute;
