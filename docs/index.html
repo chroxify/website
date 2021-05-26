@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
         integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
         crossorigin="anonymous" />
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
 </head>
 
 <body>
@@ -39,8 +40,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="back" id="test">
-                    BACK
+                <div class="back">
+                    <div class="backbtn" id="backbtn"></div>
+                    <div class="content" id="contentback">
+                        <div class="text">
+                            <h3>About Me</h3>
+                            <br>
+                            <span>My name is Christo Todorov and I am a Full Stack web and app developer from Stuttgart,
+                                Germany.<br>Some of the main languages I have experience with are Python, Dart, Java and
+                                Javascript.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,7 +81,7 @@
         }
 
         const cardd = document.querySelector(".card1");
-        const test = document.getElementById("test");
+        const test = document.getElementById("backbtn");
         test.onclick = function () {
             card.className = "card0";
         }
