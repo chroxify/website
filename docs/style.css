@@ -19,32 +19,65 @@ section.light
 {
     background: #f0f8ff;
 }
-section .card
+
+section .card 
 {
-    position:  relative;
+    position: relative;
     width: 300px;
     height: 380px;
-    background: #323840;
+    transform-style: preserve-3d;
+    transition: all 0.3s linear;
+}
+section .front,
+section .back
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
     border-radius: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background 0.5s;
 }
-section.light .card
+section .front
+{
+    background: #323840;   
+    backface-visibility: hidden;
+    z-index: 2;
+    transform-style: preserve-3d;
+}
+section .back
+{
+    background: #323840;
+    z-index: 1;
+    transform: rotateY(180deg);
+}
+section .container:hover .card {
+    transform: rotateY(180deg);
+}
+section .container
+{
+    perspective: 1000px;  
+}
+
+section.light .card .front
 {
     background: #fff;
 }
-section .card .content,
-section .card .profile
+section.light .card .back
+{
+    background: #fff;
+}
+section .card .front .content,
+section .card .front .profile
 {
     display: flex;
     justify-content: center;
     align-items: center;
 flex-direction: column;
 }
-section .card .profile .image
+section .card .front .profile .image
 {
     position: relative;
     width: 120px;
@@ -55,7 +88,7 @@ section .card .profile .image
     margin-bottom: 15px;
 
 }
-section .card .profile .image img
+section .card .front .profile .image img
 {
     position: absolute;
     top: 0%;
@@ -68,7 +101,7 @@ section .card .profile .image img
     user-select: none;
 }
 
-section .card .profile .text h3
+section .card .front .profile .text h3
 {
     font-weight: 500;
     font-size: 1.4em;
@@ -77,17 +110,17 @@ section .card .profile .text h3
     color: #2fa1ff;
 
 }
-section .card .profile .text h3 span
+section .card .front .profile .text h3 span
 {
     font-weight: 400;
     color: #ccc;
     font-size: 0.75em;
 }
-section.light .profile .text h3 span
+section.light .front .profile .text h3 span
 {
     color: #777;
 }
-section .card .socials .tooltip
+section .card .front .socials .tooltip
 {
     position: relative;
     width: 103px;
@@ -106,7 +139,7 @@ section .card .socials .tooltip
          -o-transition: opacity 0.2s ease-in;
             transition: opacity 0.2s ease-in;
 }
-section .card .socials .tooltip:before
+section .card .front .socials .tooltip:before
 {
     position: absolute;
     content: "";
@@ -117,24 +150,24 @@ section .card .socials .tooltip:before
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
 }
-section.light .card .socials .tooltip:before
+section.light .card .front .socials .tooltip:before
 {
     background: #e9f5ff;
 }
-section.light .card .socials .tooltip
+section.light .card .front .socials .tooltip
 {
     background: #e9f5ff;
 }
-section .card .socials .info
+section .card .front .socials .info
 {
     display: flex;
     margin-top: 20px;
 }
-section .card .socials .info li
+section .card .front .socials .info li
 {
     list-style: none;
 }
-section .card .socials .info li a
+section .card .front .socials .info li a
 {
     position: relative;
     width: 50px;
@@ -150,20 +183,20 @@ section .card .socials .info li a
     font-size: 20px;
     transition: 0.5s;
 }
-section.light .card .socials .info li a
+section.light .card .front .socials .info li a
 {
     background: #e9f5ff;
 }
-section .card .socials .info li a:hover
+section .card .front .socials .info li a:hover
 {
     color: #fff;
 }
-section .card .socials .info li a .fa
+section .card .front .socials .info li a .fa
 {
     position: relative;
     z-index: 1000;
 }
-section .card .socials .info li a:before
+section .card .front .socials .info li a:before
 {
     content: '';
     position: absolute;
@@ -174,7 +207,7 @@ section .card .socials .info li a:before
     transform: scale(0);
     transition: 0.5s;
 }
-section .card .socials .info li a:hover:before
+section .card .front .socials .info li a:hover:before
 {
     transform: scale(1);
 }
