@@ -87,8 +87,7 @@ section.light .profile .text h3 span
 {
     color: #777;
 }
-/*TODO Make tooltip code cleaner*/
-section .card .socials .tooltip0
+section .card .socials .tooltip
 {
     position: relative;
     width: 103px;
@@ -107,26 +106,7 @@ section .card .socials .tooltip0
          -o-transition: opacity 0.2s ease-in;
             transition: opacity 0.2s ease-in;
 }
-section .card .socials .tooltip1
-{
-    position: relative;
-    width: 103px;
-    top: 13px;
-    left: 80px;
-    background: #404852;   
-    font-size: 15px;
-    color: #2fa1ff;
-    padding: 10px 18px;
-    border-radius: 25px;
-    opacity: 1;
-    pointer-events: auto;
-    -webkit-transition: opacity 0.2s ease-in;
-       -moz-transition: opacity 0.2s ease-in;
-        -ms-transition: opacity 0.2s ease-in;
-         -o-transition: opacity 0.2s ease-in;
-            transition: opacity 0.2s ease-in;
-}
-section .card .socials .tooltip1:before, .tooltip0:before
+section .card .socials .tooltip:before
 {
     position: absolute;
     content: "";
@@ -137,15 +117,11 @@ section .card .socials .tooltip1:before, .tooltip0:before
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
 }
-section.light .card .socials .tooltip1:before, .tooltip0:before
+section.light .card .socials .tooltip:before
 {
     background: #e9f5ff;
 }
-section.light .card .socials .tooltip0
-{
-    background: #e9f5ff;
-}
-section.light .card .socials .tooltip1
+section.light .card .socials .tooltip
 {
     background: #e9f5ff;
 }

@@ -32,7 +32,7 @@
                         </li>
                         <li id="contact"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
                     </ul>
-                    <div class="tooltip0">E-Mail copied</div>
+                    <div class="tooltip">E-Mail copied</div>
                 </div>
             </div>
         </div>
@@ -46,10 +46,11 @@
     </script>
     <script>
         const contact = document.getElementById("contact");
+        const tooltip = document.querySelector(".tooltip")
         contact.onclick = function () {
-            document.querySelector(".tooltip0").className = 'tooltip1';
+            document.querySelector(".tooltip").style.opacity = '1';
             setTimeout(function () {
-                document.querySelector(".tooltip1").className = 'tooltip0';
+                document.querySelector(".tooltip").style.opacity = '0';
             }, 2000);
             navigator.clipboard.writeText("chroxify@gmail.com");
         }
