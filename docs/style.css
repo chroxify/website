@@ -294,3 +294,16 @@ section.light .card0 .front .toggle:before, .light .card1 .front .toggle:before
 {
     content: '\f185';
 }
+
+section .mobile
+{
+    position: absolute;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+section .mobile h3
+{   
+    font-size: xxx-large;
+    color: #2fa1ff;
+}
