@@ -59,6 +59,7 @@ section .card1 {
 section .container
 {
     perspective: 1000px;  
+    background: transparent;
 }
 
 section.light .card0 .front, .light .card1 .front
