@@ -7,6 +7,7 @@ import { infoConfig } from '@/config/info'
 import RepositoryGrid from '@/components/repo-grid'
 import LinkButton from '@/components/link-button'
 import InfoSection from '@/components/info-section'
+import { Analytics } from '@vercel/analytics/react'
 
 export default function Home() {
   function getAge() {
@@ -18,6 +19,9 @@ export default function Home() {
 
   return (
     <main className='flex flex-col justify-center gap-10 max-w-3xl pl-4 pr-4'>
+      {/* Vercel Analytics */}
+      <Analytics />
+
       {/* About me */}
       <div className='flex flex-col justify-center gap-5'>
         {/* Socials + Location */}
