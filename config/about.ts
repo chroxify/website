@@ -4,7 +4,7 @@ export const aboutConfig = {
   birthdate: '2006-02-24',
   location: 'Stuttgart, DE',
   socials: {
-    twitter: 'chroxify',
+    twitter: '0xUnknwnn',
     github: 'chroxify',
     linkedin: 'chroxify',
     discord: {

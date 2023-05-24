@@ -3,13 +3,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { aboutConfig } from '@/config/about'
+import { infoConfig } from '@/config/info'
 import RepositoryGrid from '@/components/repo-grid'
 import LinkButton from '@/components/link-button'
 import InfoSection from '@/components/info-section'
 
 export default function Home() {
   function getAge() {
-    // Calculate age with 3 decimals, birthday format: YYYY-MM-DD
     return (
       (new Date().getTime() - new Date(aboutConfig.birthdate).getTime()) /
       31556952000
@@ -50,32 +50,31 @@ export default function Home() {
           Hi, I&apos;m {aboutConfig.name}
         </h1>
         <p className='text-base md:text-lg font-light text-white/50'>
-          I am a ~{getAge().toFixed(3)} year old developer from Germay. I&apos;m
-          interested in web development, game development and software
-          development in general.
+          I am a ~{getAge().toFixed(3)} year old developer from Germany who is
+          mainly interested in web development and software development but also
+          likes exploring other areas of computer science.
         </p>
       </div>
 
-      {/* What do I do? */}
+      {/* About */}
       <InfoSection
-        title='What do I do?'
-        details='I am a full stack developer, but I mainly focus on frontend development.'
+        title={infoConfig.about.title}
+        details={infoConfig.about.details}
       />
 
-      {/* My GitHub Repos */}
+      {/* Projects */}
       <InfoSection
-        title='GitHub Repositories 📦'
-        details='Here are some of my pinned repositories:'
+        title={infoConfig.projects.title}
+        details={infoConfig.projects.details}
       >
         <RepositoryGrid />
       </InfoSection>
 
-      {/* My Skills */}
+      {/* Technologies */}
       <InfoSection
-        title='Technologies 🛠'
-        details='Here are some of the tools I use:'
+        title={infoConfig.technologies.title}
+        details={infoConfig.technologies.details}
       >
-        {/* Tools Grid */}
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5'>
           {aboutConfig.technologies.map((skill, index) => {
             return (
@@ -102,9 +101,9 @@ export default function Home() {
         </div>
       </InfoSection>
 
-      {/* Contact me */}
+      {/* Contact */}
       <InfoSection
-        title='Get in touch 📧'
+        title={infoConfig.contact.title}
         details={
           <>
             You can contact me at any time via{' '}
