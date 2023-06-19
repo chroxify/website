@@ -5,3 +5,12 @@ export type Repository = {
   forks: number
   link: string
 }
+
+export type pinnedRepoResponse = {
+  repo: string
+  description: string
+  language: string
+  stars: number
+  forks: number
+  link: string
+}

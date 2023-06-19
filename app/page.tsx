@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
 import { aboutConfig } from '@/config/about'
@@ -8,8 +6,55 @@ import RepositoryGrid from '@/components/repo-grid'
 import LinkButton from '@/components/link-button'
 import InfoSection from '@/components/info-section'
 import { Analytics } from '@vercel/analytics/react'
+import { Repository, pinnedRepoResponse } from '@/types/github'
 
-export default function Home() {
+async function getGithubRepos() {
+  const username = aboutConfig.socials.github
+
+  let data: pinnedRepoResponse[] = []
+  let repos: Repository[] = []
+
+  await fetch('https://gh-pinned-repos.egoist.dev/?username=' + username)
+    .then((response) => response.json())
+    .then((pinnedRepos) => {
+      data = pinnedRepos
+    })
+    .catch(() => {
+      console.error('Error fetching GitHub repos')
+    })
+
+  for (let i = 0; i < data.length; i++) {
+    await fetch('https://api.github.com/repos/' + username + '/' + data[i].repo)
+      .then((response) => response.json())
+      .then((repoDetails) => {
+        data[i].forks = repoDetails.forks
+      })
+      .catch((error) => {
+        console.error('Error fetching GitHub repo details:', error)
+      })
+
+    // Cut down description if it's too long
+    if (data[i].description.length > 45) {
+      data[i].description = data[i].description.substring(0, 45) + '...'
+    }
+
+    repos.push({
+      name: data[i].repo,
+      description: data[i].description,
+      stars: data[i].stars,
+      forks: data[i].forks,
+      link: data[i].link,
+    })
+  }
+
+  // set repos
+  return repos
+}
+
+export default async function Home() {
+  // Get repos
+  const repos = await getGithubRepos()
+
   function getAge() {
     return (
       (new Date().getTime() - new Date(aboutConfig.birthdate).getTime()) /
@@ -71,7 +116,7 @@ export default function Home() {
         title={infoConfig.projects.title}
         details={infoConfig.projects.details}
       >
-        <RepositoryGrid />
+        <RepositoryGrid repos={repos} />
       </InfoSection>
 
       {/* Technologies */}
