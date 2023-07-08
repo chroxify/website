@@ -8,7 +8,7 @@ export const aboutConfig = {
     github: 'chroxify',
     linkedin: 'chroxify',
     discord: {
-      name: 'chroxify#0404',
+      name: 'chroxify',
       id: '538823751555612672',
     },
   },
