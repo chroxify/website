@@ -25,15 +25,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           GeistSans.className,
-          "bg-background flex flex-col gap-10 items-center justify-between p-5 sm:p-24 h-[calc(100dvh)] selection:text-primary-foreground selection:bg-primary"
+          "bg-background flex flex-col gap-10 items-center justify-between p-5 sm:px-24 h-[calc(100dvh)] selection:text-primary-foreground selection:bg-primary"
         )}
       >
         <Analytics />
-        <ThemeProvider attribute="class" forcedTheme="dark" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem={true}
+        >
           {children}
         </ThemeProvider>
       </body>

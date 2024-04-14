@@ -9,5 +9,9 @@ export default function LocalTime() {
     minute: "numeric",
     timeZone: "Europe/Berlin",
   });
-  return <span className="text-muted-foreground text-sm">{berlin}</span>;
+  return (
+    <span className="text-muted-foreground text-sm" suppressHydrationWarning>
+      {berlin}
+    </span>
+  );
 }
