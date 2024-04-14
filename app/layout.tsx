@@ -4,8 +4,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: "Christo Todorov",
   description: "Crafting code & drawing pixels.",
@@ -29,11 +27,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={GeistSans.className}>
         <Analytics />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem={true}
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="bg-background flex flex-col gap-10 items-center justify-between px-5 sm:px-24 h-[calc(100dvh)] selection:text-primary-foreground selection:bg-primary">
             {children}
           </main>
