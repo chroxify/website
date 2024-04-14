@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Christo Todorov",
