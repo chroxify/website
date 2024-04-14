@@ -37,9 +37,9 @@ export default function Home() {
           about me.
         </h2>
         <p>
-          Building things on the web since 2019. I'm especially passionate about
-          well executed design, attention to detail, and the intersection of
-          code and art.
+          Building things on the web since 2019. I&apos;m especially passionate
+          about well executed design, attention to detail, and the intersection
+          of code and art.
         </p>
       </div>
 
