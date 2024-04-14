@@ -1,3 +1,5 @@
+"use client";
+
 const qoutes = [
   "Consistency is key.",
   "Consistency over perfection.",
@@ -10,7 +12,10 @@ const qoutes = [
 
 export default function Qoute() {
   return (
-    <blockquote className="text-muted-foreground text-sm">
+    <blockquote
+      className="text-muted-foreground text-sm"
+      suppressHydrationWarning
+    >
       {qoutes[Math.floor(Math.random() * qoutes.length)]}
     </blockquote>
   );

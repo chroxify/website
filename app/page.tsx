@@ -3,6 +3,7 @@ import { Newsreader } from "next/font/google";
 import Project from "@/components/project";
 import Social from "@/components/social";
 import Qoute from "@/components/qoute";
+import LocalTime from "@/components/time";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -109,17 +110,7 @@ export default function Home() {
       {/* Footer */}
       <div className="h-full w-full max-w-2xl justify-between flex items-end animate-enter delay-200">
         <Qoute />
-        <span className="text-muted-foreground text-sm">
-          {/* Sun 03:18AM in CET timezone */}
-          {new Date().toLocaleString("en-US", {
-            weekday: "short",
-            month: "short",
-            day: "numeric",
-            hour: "numeric",
-            minute: "numeric",
-            timeZone: "Europe/Berlin",
-          })}
-        </span>
+        <LocalTime />
       </div>
     </main>
   );
