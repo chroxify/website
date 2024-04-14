@@ -12,9 +12,9 @@ const newsreader = Newsreader({
 
 export default function Home() {
   return (
-    <main className="flex flex-col h-full w-full max-w-2xl gap-10">
+    <div className="flex flex-col h-full w-full max-w-2xl gap-10">
       {/* Header */}
-      <h1 className="font-medium transition-all animate-enter pt-24">
+      <h1 className="font-medium transition-all animate-enter pt-5 sm:pt-24">
         Christo Todorov
         <br />
         <span
@@ -108,10 +108,10 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div className="h-full w-full max-w-2xl justify-between flex items-end animate-enter delay-200 pb-24">
+      <div className="h-full w-full max-w-2xl justify-between flex items-end animate-enter delay-200 pb-5 sm:pb-24">
         <Qoute />
         <LocalTime />
       </div>
-    </main>
+    </div>
   );
 }

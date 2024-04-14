@@ -26,19 +26,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          GeistSans.className,
-          "bg-background flex flex-col gap-10 items-center justify-between p-5 sm:px-24 h-[calc(100dvh)] selection:text-primary-foreground selection:bg-primary"
-        )}
-      >
+      <body className={GeistSans.className}>
         <Analytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem={true}
         >
-          {children}
+          <main className="bg-background flex flex-col gap-10 items-center justify-between px-5 sm:px-24 h-[calc(100dvh)] selection:text-primary-foreground selection:bg-primary">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
