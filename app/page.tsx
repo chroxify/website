@@ -101,7 +101,7 @@ export default function Home() {
         </h2>
         <div className="flex items-center justify-start gap-2">
           <Social name="Mail" url="mailto:chroxify@gmail.com" />
-          <Social name="Twitter" url="https://twitter.com/0xChroxify" />
+          <Social name="Twitter" url="https://twitter.com/chroxify" />
           <Social name="GitHub" url="https://github.com/chroxify" />
           <Social name="LinkedIn" url="https://linkedin.com/in/chroxify" />
         </div>
