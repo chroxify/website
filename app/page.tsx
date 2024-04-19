@@ -2,8 +2,6 @@ import { cn } from "@/lib/utils";
 import { Newsreader } from "next/font/google";
 import Project from "@/components/project";
 import Social from "@/components/social";
-import Qoute from "@/components/qoute";
-import LocalTime from "@/components/time";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -12,31 +10,17 @@ const newsreader = Newsreader({
 
 export default function Home() {
   return (
-    <div className="flex flex-col h-full w-full max-w-2xl gap-10">
-      {/* Header */}
-      <h1 className="font-medium transition-all animate-enter pt-5 sm:pt-24">
-        Christo Todorov
-        <br />
-        <span
-          className={cn(
-            newsreader.className,
-            "font-normal text-secondary-foreground"
-          )}
-        >
-          Crafting code & drawing pixels.
-        </span>
-      </h1>
-
+    <>
       {/* About */}
       <div className="space-y-2 w-full animate-enter delay-75">
-        <h2
+        <h1
           className={cn(
             newsreader.className,
-            "italic text-secondary-foreground"
+            "text-secondary-foreground italic"
           )}
         >
-          about me.
-        </h2>
+          About me
+        </h1>
         <p>
           Building things on the web since 2019. I&apos;m especially passionate
           about well executed design, attention to detail, and the intersection
@@ -46,14 +30,14 @@ export default function Home() {
 
       {/* Projects */}
       <div className="space-y-2 w-full animate-enter delay-100">
-        <h2
+        <h1
           className={cn(
             newsreader.className,
             "italic text-secondary-foreground"
           )}
         >
-          projects.
-        </h2>
+          Projects
+        </h1>
 
         <ul className="space-y-2 w-full">
           <Project
@@ -91,14 +75,14 @@ export default function Home() {
 
       {/* Socials */}
       <div className="space-y-2 w-full animate-enter delay-150">
-        <h2
+        <h1
           className={cn(
             newsreader.className,
             "italic text-secondary-foreground"
           )}
         >
-          socials.
-        </h2>
+          Socials
+        </h1>
         <div className="flex items-center justify-start gap-2">
           <Social name="Mail" url="mailto:chroxify@gmail.com" />
           <Social name="Twitter" url="https://twitter.com/0xChroxify" />
@@ -106,12 +90,6 @@ export default function Home() {
           <Social name="LinkedIn" url="https://linkedin.com/in/chroxify" />
         </div>
       </div>
-
-      {/* Footer */}
-      <div className="h-full w-full max-w-2xl justify-between flex items-end animate-enter delay-200 pb-5 sm:pb-24">
-        <Qoute />
-        <LocalTime />
-      </div>
-    </div>
+    </>
   );
 }

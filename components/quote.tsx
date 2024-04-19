@@ -10,7 +10,7 @@ const qoutes = [
   "Less is more.",
 ];
 
-export default function Qoute() {
+export default function Quote() {
   return (
     <blockquote
       className="text-muted-foreground text-sm"
