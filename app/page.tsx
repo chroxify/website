@@ -57,6 +57,12 @@ export default function Home() {
 
         <ul className="space-y-2 w-full">
           <Project
+            name="OTP Inbox"
+            url="https://www.raycast.com/chroxify/otp-inbox"
+            description="Fastest way to fill in email verification codes."
+            year="2024"
+          />
+          <Project
             name="Haptic"
             url="https://github.com/chroxify/haptic"
             description="Open source markdown editor."
