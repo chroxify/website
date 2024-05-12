@@ -1,5 +1,4 @@
 import Folder from "@/components/crafts/folder/folder";
-import IosRadio from "@/components/crafts/ios-radio";
 import { allCrafts } from "contentlayer/generated";
 import type { MDXComponents } from "mdx/types";
 import { Metadata } from "next";
@@ -46,7 +45,6 @@ const mdxComponents: MDXComponents = {
     <p className="text-secondary-foreground">{children}</p>
   ),
   Craft: {
-    IosRadio,
     Folder,
   },
 };
