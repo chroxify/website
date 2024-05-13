@@ -27,7 +27,7 @@ export default function LocalTime() {
 
   return (
     <span className="text-muted-foreground text-sm" suppressHydrationWarning>
-      {berlinTime}
+      {berlinTime} (LT)
     </span>
   );
 }
