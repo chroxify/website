@@ -37,6 +37,8 @@ const mdxComponents: MDXComponents = {
     <Link
       href={href as string}
       className="text-foreground hover:underline transition-all"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {children}
     </Link>
@@ -62,14 +64,14 @@ export default async function Page({ params }: Props) {
   const MDXContent = useMDXComponent(craft.body.code);
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-5">
       <div className="w-full">
         <h2>{craft.title}</h2>
         <p className="text-muted-foreground text-sm">
           {new Date(craft.date).toLocaleDateString()}
         </p>
       </div>
-      <div className="space-y-6 w-full prose">
+      <div className="space-y-5 w-full">
         <MDXContent components={mdxComponents} />
       </div>
     </div>

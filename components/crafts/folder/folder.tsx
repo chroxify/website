@@ -132,7 +132,7 @@ export default function Folder() {
           variants={animationVariants.folderBack}
         />
         {/* Folder Front */}
-        <div className="z-30 relative h-full w-full drop-shadow-2xl">
+        <div className="z-30 relative h-full w-full">
           <motion.div
             className="absolute bottom-0 bg-gradient-to-b from-[#73D7FF] to-[#6BCBF3] w-3/4 h-[calc(90%-0.5rem)] rounded-l-lg flex flex-col-reverse overflow-hidden"
             variants={animationVariants.folderFrontLeft}
@@ -146,6 +146,9 @@ export default function Folder() {
             <FolderFrontStrips />
           </motion.div>
         </div>
+
+        {/* Shadow */}
+        <div className="absolute bottom-0 w-full top-[18px] z-20 shadow-[rgba(0,0,15,0.4)_0px_-1px_10px_0px] shadow-black/15 bg-none rounded-lg" />
 
         {/* Content */}
         <div
