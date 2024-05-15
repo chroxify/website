@@ -1,5 +1,5 @@
 import Folder from "@/components/crafts/folder/folder";
-import Upload from "@/components/crafts/upload/upload";
+import Order from "@/components/crafts/order/order";
 import { allCrafts } from "contentlayer/generated";
 import type { MDXComponents } from "mdx/types";
 import { Metadata } from "next";
@@ -49,7 +49,7 @@ const mdxComponents: MDXComponents = {
   ),
   Craft: {
     Folder,
-    Upload,
+    Order,
   },
 };
 

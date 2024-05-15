@@ -1,47 +1,51 @@
 "use client";
 
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ComponentWrapper from "../component-wrapper";
 import { AnimationProps, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Check, CheckCircle, Loader } from "@geist-ui/icons";
+import { CheckCircle, Loader } from "@geist-ui/icons";
 
 const STEP_DURATION = 2000;
 const STEP_DELAY = 1250;
 
 const STEPS = [
   {
-    label: "Recieve",
-    message: "Uploading",
-    success: "Uploaded",
+    label: "Stock",
+    message: "Checking",
+    success: "Available",
   },
   {
-    label: "Optimize",
-    message: "Compressing",
-    success: "Compressed",
+    label: "Payment",
+    message: "Processing",
+    success: "Received",
+  },
+  {
+    label: "Delivery",
+    message: "Preparing",
+    success: "Shipped",
   },
 ];
+
+const LABELS = {
+  initial: "Order",
+  success: "Order Placed",
+};
 
 type AnimationType = "hover" | "rest" | "click" | "complete";
 
 // Step Component
 function Step({
-  step,
   currentStep,
   loading,
   active,
   data,
 }: {
-  step: number;
   currentStep: number;
   loading: boolean;
   active: boolean;
   data: { label: string; message: string; success: string };
 }) {
-  console.log(
-    Math.max(STEP_DURATION * 0.001 * step, 0.2),
-    STEP_DURATION * step
-  );
   return (
     <motion.div
       className={cn(
@@ -53,9 +57,9 @@ function Step({
           opacity: 0,
         },
         click: {
-          opacity: currentStep >= 0 ? 1 : 0,
+          opacity: active && currentStep >= 0 ? 1 : 0,
           transition: {
-            delay: Math.max(STEP_DURATION * 0.001 * step, 0.2),
+            delay: 0.15,
           },
         },
       }}
@@ -75,17 +79,17 @@ function Step({
   );
 }
 
-export default function Upload() {
+export default function Order() {
   const [animate, setAnimate] = useState<AnimationType>("rest");
   const [step, setStep] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [buttonLabel, setButtonLabel] = useState("Upload");
+  const [buttonLabel, setButtonLabel] = useState(LABELS.initial);
 
   const animationVariants: Record<string, AnimationProps["variants"]> = {
     buttonContainer: {
       click: {
         width: "13rem",
-        height: `${38 + 20 * (step + 1)}px`,
+        height: `${36 + 21 * (step + 1)}px`,
         justifyContent: "start",
         transition: {
           type: "spring",
@@ -94,18 +98,18 @@ export default function Upload() {
         },
       },
       complete: {
-        width: "11rem",
+        width: "9rem",
         height: "2.25rem",
         backgroundColor: "#4ade80",
         color: "#fff",
         transition: {
           type: "spring",
-          stiffness: 140,
-          damping: 20,
+          stiffness: 120,
+          damping: 15,
         },
       },
       rest: {
-        width: "5rem",
+        width: "4.5rem",
         height: "2.25rem",
         transition: {
           type: "spring",
@@ -119,22 +123,18 @@ export default function Upload() {
         scale: 0.9,
         position: "absolute",
         justifyContent: "space-between",
-        top: "0.25rem",
+        top: "0.3rem",
         transition: {
-          duration: 0.2,
-          type: "tween",
-          ease: "easeInOut",
+          type: "spring",
+          stiffness: 120,
+          damping: 15,
         },
       },
       complete: {
         scale: 1,
-        position: "initial",
-        gap: "0.5rem",
-        transition: {
-          duration: 0.2,
-          type: "tween",
-          ease: "easeInOut",
-        },
+        position: "absolute",
+        justifyContent: "space-evenly",
+        top: "16%",
       },
     },
   };
@@ -156,10 +156,10 @@ export default function Upload() {
     }
 
     if (animate === "complete") {
-      setButtonLabel("Upload Complete");
+      setButtonLabel(LABELS.success);
       setTimeout(() => {
         setStep(0);
-        setButtonLabel("Upload");
+        setButtonLabel(LABELS.initial);
         setAnimate("rest");
       }, STEP_DELAY);
     }
@@ -186,11 +186,11 @@ export default function Upload() {
           setTimeout(() => {
             setAnimate("complete");
             setStep(0);
-          }, STEP_DURATION * 2 + STEP_DELAY / 6);
+          }, STEP_DURATION * STEPS.length + STEP_DELAY / 5);
         }}
         variants={animationVariants.buttonContainer}
         className={cn(
-          "flex relative items-center flex-col h-9 w-20 justify-center text-primary-foreground bg-primary rounded-xl cursor-pointer active:scale-[0.95] transition-transform disabled:cursor-progress"
+          "flex relative items-center flex-col h-9 w-20 justify-center text-primary-foreground bg-primary rounded-xl cursor-pointer active:scale-95 disabled:active:scale-100 transition-transform disabled:cursor-progress"
         )}
         disabled={animate !== "rest"}
       >
@@ -203,22 +203,27 @@ export default function Upload() {
           <span
             className={cn(
               "flex w-fit items-center justify-center font-medium",
-              animate === "click" && "text-primary-foreground/50"
+              animate === "click" && "text-primary-foreground/60"
             )}
           >
             {buttonLabel}
           </span>
-          <div>
+          <div
+            className={cn(
+              "transition-opacity",
+              !loading && step === STEPS.length - 1 && "opacity-0",
+              animate === "complete" && "opacity-100"
+            )}
+          >
             <Loader
               className={cn(
                 "animate-spin h-3.5 w-3.5 stroke-current right-3 top-[9px]",
-                animate !== "click" && "hidden",
-                !loading && step === STEPS.length - 1 && "hidden"
+                animate !== "click" && "hidden"
               )}
             />
             <CheckCircle
               className={cn(
-                "h-4 w-4 stroke-current right-3 top-[9px]",
+                "h-4 w-4 stroke-current stroke-2 right-3 top-[9px]",
                 animate !== "complete" && "hidden"
               )}
             />
@@ -235,7 +240,6 @@ export default function Upload() {
           {STEPS.map((data, i) => (
             <Step
               key={i}
-              step={i}
               currentStep={step}
               loading={loading && step === i}
               active={step >= i}
