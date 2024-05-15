@@ -190,7 +190,7 @@ export default function Order() {
         }}
         variants={animationVariants.buttonContainer}
         className={cn(
-          "flex relative items-center flex-col h-9 w-20 justify-center text-primary-foreground bg-primary rounded-xl cursor-pointer active:scale-95 disabled:active:scale-100 transition-transform disabled:cursor-progress"
+          "flex relative items-center flex-col h-9 w-[4.5rem] justify-center text-primary-foreground bg-primary rounded-xl cursor-pointer active:scale-95 disabled:active:scale-100 transition-transform disabled:cursor-progress"
         )}
         disabled={animate !== "rest"}
       >
