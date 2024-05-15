@@ -186,7 +186,7 @@ export default function Order() {
           setTimeout(() => {
             setAnimate("complete");
             setStep(0);
-          }, STEP_DURATION * STEPS.length + STEP_DELAY / 5);
+          }, STEP_DURATION * STEPS.length + 200);
         }}
         variants={animationVariants.buttonContainer}
         className={cn(
