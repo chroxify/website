@@ -1,5 +1,6 @@
 import Folder from "@/components/crafts/folder/folder";
 import Order from "@/components/crafts/order/order";
+import Waitlist from "@/components/crafts/waitlist/waitlist";
 import { allCrafts } from "contentlayer/generated";
 import type { MDXComponents } from "mdx/types";
 import { Metadata } from "next";
@@ -50,6 +51,7 @@ const mdxComponents: MDXComponents = {
   Craft: {
     Folder,
     Order,
+    Waitlist,
   },
 };
 
