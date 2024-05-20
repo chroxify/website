@@ -96,7 +96,7 @@ function FolderFrontStrips() {
 }
 
 export default function Folder() {
-  const [animate, SetAnimate] = useState<"clicked" | "rest" | "hover">("rest");
+  const [animate, setAnimate] = useState<"clicked" | "rest" | "hover">("rest");
   const { isDesktop } = useMediaQuery();
 
   return (
@@ -110,14 +110,14 @@ export default function Folder() {
         onClick={() => {
           if (!isDesktop) {
             if (animate === "rest") {
-              SetAnimate("hover");
+              setAnimate("hover");
             } else if (animate === "hover") {
-              SetAnimate("clicked");
+              setAnimate("clicked");
             } else {
-              SetAnimate("rest");
+              setAnimate("rest");
             }
           } else {
-            SetAnimate((prev) => (prev === "rest" ? "clicked" : "rest"));
+            setAnimate((prev) => (prev === "rest" ? "clicked" : "rest"));
           }
         }}
       >
