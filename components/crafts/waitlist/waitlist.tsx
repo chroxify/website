@@ -3,7 +3,8 @@
 import { motion, AnimationProps } from "framer-motion";
 import ComponentWrapper from "../component-wrapper";
 import { useEffect, useState } from "react";
-import { Check, Loader } from "@geist-ui/icons";
+import { Check, CheckCircle, Loader } from "@geist-ui/icons";
+import { cn } from "@/lib/utils";
 
 type AnimationType = "hover" | "rest" | "click" | "complete";
 
@@ -21,11 +22,14 @@ export default function Waitlist() {
       // },
       click: {
         scale: 0.8,
-        width: isLoading ? "12rem" : "5.5rem",
+        transition: {
+          type: "tween",
+          duration: 0.2,
+        },
       },
       complete: {
         scale: 1,
-        width: "6.75rem",
+        width: "10.75rem",
       },
     },
     input: {
@@ -34,6 +38,11 @@ export default function Waitlist() {
       },
       click: {
         opacity: 1,
+        scale: 1,
+        transition: {
+          type: "tween",
+          duration: 0.2,
+        },
       },
       complete: {
         scale: 0,
@@ -42,15 +51,17 @@ export default function Waitlist() {
     inputContainer: {
       rest: {
         width: "5rem",
-        justifyContent: "center",
       },
       click: {
         width: "15rem",
-        justifyContent: "flex-end",
+        transition: {
+          type: "spring",
+          stiffness: 150,
+          damping: 20,
+        },
       },
       complete: {
         width: "6.75rem",
-        justifyContent: "center",
       },
     },
     buttonLabel: {
@@ -75,53 +86,86 @@ export default function Waitlist() {
 
   return (
     <ComponentWrapper>
-      <motion.div
+      <motion.form
         whileHover="hover"
         animate={animate}
         variants={animationVariants.inputContainer}
-        className="flex flex-row w-20 h-9 relative"
+        className="flex flex-row w-20 h-9 relative justify-end"
+        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Simulate loading
+          setIsLoading(true);
+          setTimeout(() => {
+            setAnimate("complete");
+            setIsLoading(false);
+            resetAnimation();
+            (e.target as HTMLFormElement).reset();
+          }, 2000);
+        }}
+        initial={false}
       >
         {/* Button */}
         <motion.button
-          className="flex flex-col z-30 bg-primary overflow-hidden text-primary-foreground rounded-xl h-9 w-full items-center justify-center"
-          variants={animationVariants.button}
-          onClick={() => {
-            if (animate !== "click") {
-              setAnimate("click");
-            } else if (animate === "click") {
-              // Loading 2s, then complete
-              setIsLoading(true);
-              setTimeout(() => {
-                setAnimate("complete");
-                setIsLoading(false);
-                resetAnimation();
-              }, 2000);
-            }
+          className={cn(
+            "flex flex-col z-30 bg-primary overflow-hidden text-primary-foreground rounded-xl h-9 w-full items-center justify-center",
+            isLoading && "opacity-60"
+          )}
+          style={{
+            width: isLoading ? "5.75rem" : "5rem",
+            translateX: isLoading ? "0.093rem" : "0",
+            transition: "width 0.15s",
           }}
+          variants={animationVariants.button}
+          onClick={(e) => {
+            if (animate === "click") {
+              return;
+            }
+            e.preventDefault();
+            e.stopPropagation();
+            setAnimate("click");
+          }}
+          type={animate === "click" ? "submit" : "button"}
+          disabled={isLoading || animate === "complete"}
         >
           <motion.div
-            className="flex flex-col gap-4 items-center justify-center translate-y-5"
+            className="flex flex-col gap-4 items-center translate-y-5"
             variants={animationVariants.buttonLabel}
           >
-            <span className="flex gap-1 items-center justify-center">
-              {isLoading && <Loader className="h-4 w-4 animate-spin" />}
-              Sign up
-            </span>
-            <span className="flex gap-2 items-center justify-center">
-              <Check className="h-4 w-4" />
-              Success!
+            <div className="inline-flex gap-2">
+              <span
+                className={cn(
+                  "flex items-center gap-1 justify-center transition-transform -translate-x-2.5",
+                  isLoading && "translate-x-0"
+                )}
+              >
+                <Loader
+                  className={cn(
+                    "h-4 w-4 animate-spin opacity-0 transition-opacity",
+                    isLoading && "opacity-100"
+                  )}
+                />
+                Sign up
+              </span>
+            </div>
+            <span className="flex gap-2 shrink-0 truncate items-center justify-center">
+              <CheckCircle className="h-4 w-4" />
+              You're in
             </span>
           </motion.div>
         </motion.button>
 
         {/* Input */}
         <motion.input
-          className="w-full absolute max-w-60 h-9 bg-secondary border-input text-secondary-foreground rounded-xl mx-1 px-2.5"
+          className="w-full text-sm opacity-0 placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring ring-offset-1 transition-shadow ring-offset-background focus-visible:ring-1 absolute max-w-60 h-9 bg-secondary border border-input text-secondary-foreground rounded-xl mx-1 pl-2.5 pr-20"
           type="email"
           placeholder="Email"
+          required
+          typeof="email"
           variants={animationVariants.input}
         />
-      </motion.div>
+      </motion.form>
     </ComponentWrapper>
   );
 }
