@@ -151,7 +151,7 @@ export default function Waitlist() {
             </div>
             <span className="flex gap-2 shrink-0 truncate items-center justify-center">
               <CheckCircle className="h-4 w-4" />
-              You're in
+              You&apos;re in
             </span>
           </motion.div>
         </motion.button>
