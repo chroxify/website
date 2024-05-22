@@ -67,12 +67,20 @@ export default function Waitlist() {
     buttonLabel: {
       rest: {
         translateY: "1.25rem",
+        transition: {
+          type: "spring",
+          duration: 0.65,
+        },
       },
       click: {
         translateY: "1.25rem",
       },
       complete: {
         translateY: "-1.25rem",
+        transition: {
+          type: "spring",
+          duration: 0.65,
+        },
       },
     },
   };
@@ -150,7 +158,7 @@ export default function Waitlist() {
               </span>
             </div>
             <span className="flex gap-2 shrink-0 truncate items-center justify-center">
-              <CheckCircle className="h-4 w-4" />
+              <CheckCircle className="h-4 w-4 stroke-2" />
               You&apos;re in
             </span>
           </motion.div>
@@ -158,7 +166,10 @@ export default function Waitlist() {
 
         {/* Input */}
         <motion.input
-          className="w-full text-sm opacity-0 placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring ring-offset-1 transition-shadow ring-offset-background focus-visible:ring-1 absolute max-w-60 h-9 bg-secondary border border-input text-secondary-foreground rounded-xl mx-1 pl-2.5 pr-20"
+          className={cn(
+            "w-full text-sm opacity-0 placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring ring-offset-1 transition-shadow ring-offset-background focus-visible:ring-1 absolute max-w-60 h-9 bg-secondary border border-input text-secondary-foreground rounded-xl mx-1 pl-2.5",
+            isLoading ? "pr-20" : "pr-[4.5rem]"
+          )}
           type="email"
           placeholder="Email"
           required
