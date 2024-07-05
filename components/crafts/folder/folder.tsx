@@ -158,7 +158,7 @@ export default function Folder() {
         >
           {IMAGES.slice(0, 3).map((image, i) => (
             <motion.div
-              key={i}
+              key={`image-${i}`}
               style={{
                 position: "absolute",
                 zIndex: 10 - i,

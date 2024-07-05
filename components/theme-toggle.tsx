@@ -19,6 +19,7 @@ export function ModeToggle() {
 
   return (
     <button
+      type="button"
       className="w-6 shrink-0 h-6 inline-flex items-center justify-center rounded-md hover:bg-accent text-muted-foreground hover:text-foreground transition-all"
       onClick={handleToggle}
     >

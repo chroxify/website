@@ -2,8 +2,8 @@
 
 import { motion, AnimationProps } from "framer-motion";
 import ComponentWrapper from "../component-wrapper";
-import { useEffect, useState } from "react";
-import { Check, CheckCircle, Loader } from "@geist-ui/icons";
+import { useState } from "react";
+import { CheckCircle, Loader } from "@geist-ui/icons";
 import { cn } from "@/lib/utils";
 
 type AnimationType = "hover" | "rest" | "click" | "complete";

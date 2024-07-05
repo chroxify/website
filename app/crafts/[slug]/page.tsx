@@ -1,3 +1,4 @@
+import Filters from "@/components/crafts/filters/filters";
 import Folder from "@/components/crafts/folder/folder";
 import Order from "@/components/crafts/order/order";
 import Waitlist from "@/components/crafts/waitlist/waitlist";
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!craft) notFound();
 
   return {
-    title: "Christo Todorov | " + craft.title,
+    title: `Christo Todorov | ${craft.title}`,
     openGraph: {
       images: [
         {
@@ -35,7 +36,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // Custom MDX components
 const mdxComponents: MDXComponents = {
-  a: ({ href, children }: any) => (
+  a: (
+    { href, children }: any // eslint-disable-line
+  ) => (
     <Link
       href={href as string}
       className="text-foreground hover:underline transition-all"
@@ -45,13 +48,14 @@ const mdxComponents: MDXComponents = {
       {children}
     </Link>
   ),
-  p: ({ children }: any) => (
-    <p className="text-secondary-foreground">{children}</p>
-  ),
+  p: (
+    { children }: any // eslint-disable-line
+  ) => <p className="text-secondary-foreground">{children}</p>,
   Craft: {
     Folder,
     Order,
     Waitlist,
+    Filters,
   },
 };
 
