@@ -82,7 +82,7 @@ function Step({
 export default function Order() {
   const [animate, setAnimate] = useState<AnimationType>("rest");
   const [step, setStep] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [buttonLabel, setButtonLabel] = useState(LABELS.initial);
 
   const animationVariants: Record<string, AnimationProps["variants"]> = {
@@ -145,14 +145,15 @@ export default function Order() {
         setStep((prev) => {
           if (prev < STEPS.length - 1) {
             return prev + 1;
-          } else {
-            return prev;
           }
+          return prev;
         });
       }, STEP_DURATION);
 
       // Clean up the interval when the component unmounts or animate changes
-      return () => clearInterval(interval);
+      return () => {
+        clearInterval(interval);
+      };
     }
 
     if (animate === "complete") {
@@ -239,9 +240,9 @@ export default function Order() {
         >
           {STEPS.map((data, i) => (
             <Step
-              key={i}
+              key={data.label}
               currentStep={step}
-              loading={loading && step === i}
+              loading={loading ? step === i : false}
               active={step >= i}
               data={data}
             />
