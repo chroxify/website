@@ -49,7 +49,7 @@ function FilterItem({
         active ? "bg-secondary" : "bg-background text-muted-foreground",
         active &&
           isBound === "single" &&
-          "bg-secondary brightness-[.97] text-secondary-foreground border-muted",
+          "bg-secondary brightness-[.97] text-secondary-foreground border-muted dark:!border-muted",
         className
       )}
       variants={variants}

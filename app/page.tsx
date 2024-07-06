@@ -82,15 +82,19 @@ export default function Home() {
           Crafts
         </h2>
         <ul className="space-y-2 w-full">
-          {allCrafts.map((craft) => (
-            <ContentLink
-              key={craft._raw.flattenedPath}
-              name={craft.title}
-              url={`/crafts/${craft._raw.flattenedPath}`}
-              description={craft.description}
-              keepTab
-            />
-          ))}
+          {allCrafts
+            .sort(
+              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+            )
+            .map((craft) => (
+              <ContentLink
+                key={craft._raw.flattenedPath}
+                name={craft.title}
+                url={`/crafts/${craft._raw.flattenedPath}`}
+                description={craft.description}
+                keepTab
+              />
+            ))}
         </ul>
       </div>
 
