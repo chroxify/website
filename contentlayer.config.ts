@@ -2,7 +2,7 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
 export const Craft = defineDocumentType(() => ({
-  name: "craft",
+  name: "Craft",
   filePathPattern: `**/*.mdx`,
   contentType: "mdx",
   fields: {

@@ -1,3 +1,4 @@
+import Carousel from "@/components/crafts/carousel/carousel";
 import Filters from "@/components/crafts/filters/filters";
 import Folder from "@/components/crafts/folder/folder";
 import Order from "@/components/crafts/order/order";
@@ -56,6 +57,7 @@ const mdxComponents: MDXComponents = {
     Order,
     Waitlist,
     Filters,
+    Carousel,
   },
 };
 
