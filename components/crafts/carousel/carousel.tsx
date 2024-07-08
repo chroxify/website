@@ -93,7 +93,7 @@ export default function Carousel() {
                 focusedIndex !== index &&
                 focusedIndex !== CENTER_INDEX &&
                 (focusedIndex - 1 !== index || focusedIndex + 1 !== index) &&
-                `-m${focusedIndex > CENTER_INDEX ? "r" : "r"}-[24px]`
+                (focusedIndex > CENTER_INDEX ? "-ml-[24px]" : "-mr-[24px]")
             )}
           />
         ))}
