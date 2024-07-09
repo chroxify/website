@@ -2,6 +2,7 @@ import Carousel from "@/components/crafts/carousel/carousel";
 import Filters from "@/components/crafts/filters/filters";
 import Folder from "@/components/crafts/folder/folder";
 import Order from "@/components/crafts/order/order";
+import QuickReaction from "@/components/crafts/reaction/reaction";
 import Waitlist from "@/components/crafts/waitlist/waitlist";
 import { allCrafts } from "contentlayer/generated";
 import type { MDXComponents } from "mdx/types";
@@ -58,6 +59,7 @@ const mdxComponents: MDXComponents = {
     Waitlist,
     Filters,
     Carousel,
+    QuickReaction,
   },
 };
 
