@@ -24,7 +24,7 @@ function IconItem({ icon, selected, ...props }: IconItemProps) {
     <button
       type="button"
       className={cn(
-        "flex items-center pt-1 text-sm justify-center w-8 h-8 bg-secondary rounded-full active:scale-90 transition-all",
+        "flex items-center pt-[1.8px] text-sm justify-center w-8 h-8 bg-secondary rounded-full active:scale-90 transition-all",
         selected && "bg-muted/70"
       )}
       {...props}
@@ -112,7 +112,7 @@ export default function QuickReaction() {
           ease: "easeInOut",
         },
         default: {
-          duration: 1.5,
+          duration: 3,
           times: [0, 0.3, 1],
           ease: "easeInOut",
         },
@@ -128,8 +128,8 @@ export default function QuickReaction() {
       scale: [1, 1, 0],
       opacity: 1,
       transition: {
-        duration: 1, // 1 second for staying visible
-        times: [0, 0.9, 1], // Stay scaled up for 0.9 of the duration
+        duration: 1,
+        times: [0, 0.9, 1],
         ease: "easeInOut",
       },
     },
