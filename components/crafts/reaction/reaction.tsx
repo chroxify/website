@@ -24,7 +24,7 @@ function IconItem({ icon, selected, ...props }: IconItemProps) {
     <button
       type="button"
       className={cn(
-        "flex items-end pb-[1px] justify-center w-8 h-8 bg-secondary rounded-full active:scale-90 transition-all",
+        "flex items-center pt-1 text-sm justify-center w-8 h-8 bg-secondary rounded-full active:scale-90 transition-all",
         selected && "bg-muted/70"
       )}
       {...props}
