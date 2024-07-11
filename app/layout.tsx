@@ -53,14 +53,14 @@ export default function RootLayout({
                   Crafting code & drawing pixels.
                 </span>
               </header>
-              <main className="flex flex-col gap-10 w-full h-full">
+              <main className="flex flex-col gap-10 w-full h-fit">
                 {children}
               </main>
               {/* Footer */}
-              <footer className="h-fit w-full max-w-2xl justify-between flex items-end animate-enter delay-200 pb-5 sm:pb-24">
+              <div className="w-full max-w-2xl justify-between flex items-start pt-2 animate-enter delay-200 min-h-[116px]">
                 <Quote />
                 <LocalTime />
-              </footer>
+              </div>
             </div>
           </div>
         </ThemeProvider>
