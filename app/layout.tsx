@@ -57,7 +57,7 @@ export default function RootLayout({
                 {children}
               </main>
               {/* Footer */}
-              <div className="w-full max-w-2xl justify-between flex items-start pt-2 animate-enter delay-200 min-h-[116px]">
+              <div className="w-full max-w-2xl justify-between flex items-start pt-2 animate-enter delay-200 min-h-[50px] sm:min-h-[116px]">
                 <Quote />
                 <LocalTime />
               </div>
