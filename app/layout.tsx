@@ -40,22 +40,24 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="bg-background flex overflow-y-auto items-center px-5 gap-3 sm:px-24 h-[calc(100dvh)] justify-center selection:text-primary-foreground selection:bg-primary">
             {/* Max width container */}
-            <div className="flex flex-col h-full w-full gap-10 max-w-2xl">
-              {/* Header */}
-              <header className="transition-all animate-enter inline-flex flex-col pt-5 sm:pt-24 w-full">
-                <Link href="/">Christo Todorov</Link>
-                <span
-                  className={cn(
-                    newsreader.className,
-                    "text-secondary-foreground "
-                  )}
-                >
-                  Crafting code & drawing pixels.
-                </span>
-              </header>
-              <main className="flex flex-col gap-10 w-full h-fit">
-                {children}
-              </main>
+            <div className="flex flex-col justify-between h-full w-full gap-10 max-w-2xl">
+              <div className="space-y-10">
+                {/* Header */}
+                <header className="transition-all animate-enter inline-flex flex-col pt-5 sm:pt-24 w-full">
+                  <Link href="/">Christo Todorov</Link>
+                  <span
+                    className={cn(
+                      newsreader.className,
+                      "text-secondary-foreground "
+                    )}
+                  >
+                    Crafting code & drawing pixels.
+                  </span>
+                </header>
+                <main className="flex flex-col gap-10 w-full h-fit">
+                  {children}
+                </main>
+              </div>
               {/* Footer */}
               <div className="w-full max-w-2xl justify-between flex items-start pt-2 animate-enter delay-200 min-h-[50px] sm:min-h-[116px]">
                 <Quote />
