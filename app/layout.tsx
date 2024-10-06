@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import Quote from "@/components/quote";
 import LocalTime from "@/components/time";
 import Link from "next/link";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Christo Todorov",
@@ -37,6 +38,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={GeistSans.className}>
         <Analytics />
+        {process.env.NODE_ENV === "production" && (
+          <Script
+            src="https://cdn.seline.so/seline.js"
+            data-token="52947f744a8a4fa"
+            async
+          />
+        )}
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="bg-background flex overflow-y-auto items-center px-5 gap-3 sm:px-24 h-[calc(100dvh)] justify-center selection:text-primary-foreground selection:bg-primary">
             {/* Max width container */}
