@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;    
+}
+section
+{
+    position: relative;
+    background: #1E2228; /*or #24292d*/
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.5s;
+}
+section.light
+{
+    background: #f0f8ff;
+}
+
+section .card0, .card1 
+{
+    position: relative;
+    width: 300px;
+    height: 380px;
+    transform-style: preserve-3d;
+    transition: all 1s linear;
+}
+section .front,
+section .back
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+}
+section .front
+{
+    background: #323840;   
+    backface-visibility: hidden;
+    z-index: 2;
+    transform-style: preserve-3d;
+    transition: background 0.5s;
+}
+section .back
+{
+    background: #323840;
+    z-index: 1;
+    transform: rotateY(180deg);
+}
+section .card1 {
+    transform: rotateY(180deg);
+}
+section .container
+{
+    perspective: 1000px;  
+    background: transparent;
+}
+
+section.light .card0 .front, .light .card1 .front
+{
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
+section.light .card0 .back, .light .card1 .back
+{
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
+section .card0 .front .content, .card1 .front .content,
+section .card0 .front .profile, .card1 .front .profile
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+flex-direction: column;
+}
+section .card0 .front .profile .image , .card1 .front .profile .image
+{
+    position: relative;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-bottom: 15px;
+
+}
+section .card0 .front .profile .image img, .card1 .front .profile .image img
+{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+section .card0 .front .profile .text h3, .card1 .front .profile .text h3
+{
+    font-weight: 500;
+    font-size: 1.4em;
+    line-height: 1.2em;
+    text-align: center;
+    color: #2fa1ff;
+
+}
+section .card0 .front .profile .text h3 span, .card1 .front .profile .text h3 span
+{
+    font-weight: 400;
+    color: #ccc;
+    font-size: 0.75em;
+}
+section.light .front .profile .text h3 span
+{
+    color: #777;
+}
+section .card0 .front .socials .tooltip, .card1 .front .socials .tooltip
+{
+    position: relative;
+    width: 103px;
+    top: 13px;
+    left: 80px;
+    background: #404852;   
+    font-size: 15px;
+    color: #2fa1ff;
+    padding: 10px 18px;
+    border-radius: 25px;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: opacity 0.2s ease-in, background 0.5s;
+       -moz-transition: opacity 0.2s ease-in, background 0.5s;
+        -ms-transition: opacity 0.2s ease-in, background 0.5s;
+         -o-transition: opacity 0.2s ease-in, background 0.5s;
+            transition: opacity 0.2s ease-in, background 0.5s;
+}
+section .card0 .front .socials .tooltip:before, .card1 .front .socials .tooltip:before
+{
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background: #404852;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    transition: opacity 0.2s ease-in, background 0.5s;
+}
+section.light .card0 .front .socials .tooltip:before, .light .card1 .front .socials .tooltip:before
+{
+    background: #e9f5ff;
+}
+section.light .card0 .front .socials .tooltip, .light .card1 .front .socials .tooltip
+{
+    background: #e9f5ff;
+}
+section .card0 .front .socials .info, .card1 .front .socials .info
+{
+    display: flex;
+    margin-top: 20px;
+}
+section .card0 .front .socials .info li, .card1 .front .socials .info li
+{
+    list-style: none;
+}
+section .card0 .front .socials .info li a, .card1 .front .socials .info li a
+{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #404852;
+    color: #2fa1ff;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: 0.5s;
+}
+section.light .card0 .front .socials .info li a, .light .card1 .front .socials .info li a
+{
+    background: #e9f5ff;
+}
+section .card0 .front .socials .info li a:hover, .card1 .front .socials .info li a:hover
+{
+    color: #fff;
+}
+section .card0 .front .socials .info li a .fa, .card1 .front .socials .info li a .fa
+{
+    position: relative;
+    z-index: 1000;
+}
+section .card0 .front .socials .info li a:before, .card1 .front .socials .info li a:before
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #2fa1ff;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.5s;
+}
+section .card0 .front .socials .info li a:hover:before,  .card1 .front .socials .info li a:hover:before
+{
+    transform: scale(1);
+}
+section .card0 .back #contentback, .card1 .back #contentback
+{
+    position: relative;
+    width: 75%;
+    height: 65%;
+    top: 35px;
+    justify-content: center;
+}
+section .card0 .back .text h3, .card1 .back .text h3
+{
+    font-weight: 500;
+    font-size: 1.63em;
+    line-height: 1.2em;
+    text-align: center;
+    color: #2fa1ff;
+}
+section .card0 .back .text span, .card1 .back .text span
+{
+    font-weight: 500;
+    color: #ccc;
+    font-size: 0.75em;
+}
+section.light .card0 .back .text span, .light .card1 .back .text span
+{
+    color: #777;
+}
+section .card0 .back .backbtn, .card1 .back .backbtn
+{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #404852;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+section.light .card0 .back .backbtn, .light .card1 .back .backbtn
+{
+    background: #e9f5ff;
+}
+section .card0 .back .backbtn:before, .card1 .back .backbtn:before
+{
+    content: '\f060';
+    font-family: fontAwesome;
+    color: #2fa1ff;
+    font-size: 115%;
+}
+section .card0 .front .toggle, .card1 .front .toggle
+{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #404852;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.5s;
+}
+section.light .card0 .front .toggle, .light .card1 .front .toggle
+{
+    background: #e9f5ff;
+}
+section .card0 .front .toggle:before, .card1 .front .toggle:before
+{
+    content: '\f186';
+    font-family: fontAwesome;
+    color: #2fa1ff;
+}
+section.light .card0 .front .toggle:before, .light .card1 .front .toggle:before
+{
+    content: '\f185';
+}
+
+section .mobile
+{
+    position: absolute;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+section .mobile h3
+{   
+    font-size: xxx-large;
+    color: #2fa1ff;
+}

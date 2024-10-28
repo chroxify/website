@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" />
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+</head>
+
+<body>
+    <section class=page>
+        <div class="desktop">
+            <div class="container">
+                <div class="card0">
+                    <div class="front">
+                        <div class="toggle"></div>
+                        <div class="content">
+                            <div class="profile">
+                                <div class="image">
+                                    <img src="image/profile.png">
+                                </div>
+                                <div class="text">
+                                    <h3>Christo Todorov
+                                        <br>
+                                        <span>Full stack Developer</span>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="socials">
+                                <ul class="info">
+                                    <li id="aboutbtn"><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://github.com/Chroxify" target="_blank"><i class="fa fa-github"
+                                                aria-hidden="true"></i></a>
+                                    </li>
+                                    <li id="contact"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="tooltip">E-Mail copied</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="backbtn" id="backbtn"></div>
+                        <div class="content" id="contentback">
+                            <div class="text">
+                                <h3>About Me</h3>
+                                <br>
+                                <span>My name is Christo Todorov and I am a Full Stack web and app developer from
+                                    Stuttgart,
+                                    Germany.<br>Some of the main languages I have experience with are Python, Dart, Java
+                                    and
+                                    Javascript.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile">
+            <h3>Mobile View is coming soon...</h3>
+        </div>
+    </section>
+    <script>
+        const mode = document.querySelector(".page");
+        const toggle = document.querySelector(".toggle");
+        toggle.onclick = function () {
+            mode.classList.toggle('light')
+        }
+
+
+        const contact = document.getElementById("contact");
+        const tooltip = document.querySelector(".tooltip");
+        contact.onclick = function () {
+            tooltip.style.opacity = '1';
+            setTimeout(function () {
+                tooltip.style.opacity = '0';
+            }, 2000);
+            navigator.clipboard.writeText("chroxify@gmail.com");
+        }
+
+
+        const card = document.querySelector(".card0");
+        const about = document.getElementById("aboutbtn");
+        about.onclick = function () {
+            card.className = "card1";
+        }
+
+        const cardd = document.querySelector(".card1");
+        const test = document.getElementById("backbtn");
+        test.onclick = function () {
+            card.className = "card0";
+        }
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // true for mobile device
+            const desktop = document.querySelector(".desktop");
+            desktop.style.opacity = '0'
+            desktop.style.pointerEvents = "none";
+        } else {
+            // false for not mobile device
+            const mobile = document.querySelector(".mobile");
+            mobile.style.opacity = '0'
+            mobile.style.pointerEvents = "none";
+        }
+
+    </script>
+</body>
+
+</html>
