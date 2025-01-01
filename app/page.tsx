@@ -15,7 +15,7 @@ export default function Home() {
         </span>
 
         <span className="block">
-          Currently, I'm a design engineer at{" "}
+          Currently, I work as a design engineer at{" "}
           <a
             href="https://superwall.com"
             className="underline underline-offset-2 decoration-foreground/30 font-medium hover:opacity-70 transition-all"
@@ -40,13 +40,13 @@ export default function Home() {
           name="Superwall"
           href="https://superwall.com"
           period={{ start: "2024", end: "Present" }}
-          description="Superwall is a platform that helps you monetize your content."
+          description="Designing & developing features for the dashboard and paywalls."
         />
 
         <Experience
           name="Freelance & Open Source"
           period={{ start: "2022", end: "Present" }}
-          description="I've worked with a variety of clients, from startups to established companies, to help them build their products."
+          description="Various client projects, open-source contributions, and side projects."
         />
       </Section>
 
@@ -54,33 +54,53 @@ export default function Home() {
       <Section title="Projects">
         <Project
           name="Haptic"
-          href="https://haptic.so"
+          href="https://haptic.md"
           year={2024}
-          description="Haptic is an open source, local-first markdown note taking app."
+          description="Open source, local-first markdown note-taking app."
         />
         <Project
           name="Feedbase"
           href="https://feedbase.app"
-          year={2024}
-          description="Feedbase is an open source feedback collection tool."
+          year={2023}
+          description="A tool for collection feedback, sharing roadmaps, changelogs, and more."
         />
         <Project
           name="OTP Inbox"
-          href="https://otp.so"
+          href="https://raycast.com/chroxify/otp-inbox"
           year={2024}
-          description="OTP Inbox is an open source email inbox."
+          description="Raycast extension to easily view and copy email verification codes."
         />
         <Project
           name="Supafork"
-          href="https://supafork.com"
-          year={2024}
-          description="Supafork is a hackathon project I built making forking supabase databases 1 clicks."
+          href="https://supafork.chroxify.com"
+          year={2023}
+          description={
+            <>
+              Supafork is Vercel's one-click deploy button for Supabase
+              databases. It won{" "}
+              <a
+                href="https://supabase.com/blog/launch-week-x-hackathon-winners#best-overall-project"
+                className="underline underline-offset-2 decoration-foreground/30 hover:opacity-70 transition-all"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Best Overall Project
+              </a>{" "}
+              at the Launch Week X Hackathon.
+            </>
+          }
         />
         <Project
           name="NameGPT"
-          href="https://namegpt.ai"
-          year={2024}
-          description="Generate a name for your startup in seconds."
+          href="https://namegpt.chroxify.com"
+          year={2023}
+          description="A simple tool to generate names based on your project description."
+        />
+        <Project
+          name="Sherlock Web"
+          href="https://github.com/chroxify/sherlock-web"
+          year={2021}
+          description="Web interface for the Sherlock CLI tool."
         />
       </Section>
 

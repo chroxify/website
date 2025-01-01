@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 interface ProjectProps {
   name: string;
-  description: string;
+  description: string | ReactNode;
   href: string;
   year: number;
 }
