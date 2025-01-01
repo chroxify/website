@@ -8,6 +8,32 @@ import Order from "@/components/experiments/order";
 import Reaction from "@/components/experiments/reaction";
 import Waitlist from "@/components/experiments/waitlist";
 import { notFound } from "next/navigation";
+import { Metadata } from "next/types";
+
+type Props = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const craft = allCrafts.find((craft) => craft.slug === slug);
+
+  if (!craft) notFound();
+
+  return {
+    title: `Christo Todorov | ${craft.title}`,
+    openGraph: {
+      images: [
+        {
+          url: `/api/opengraph?title=${encodeURIComponent(craft.title)}`,
+          alt: craft.title,
+        },
+      ],
+    },
+  };
+}
 
 const components = {
   Craft: {
@@ -21,13 +47,9 @@ const components = {
   },
 };
 
-export default async function CraftPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function CraftPage({ params }: Props) {
   const { slug } = await params;
-  const craft = allCrafts.find((craft) => craft._meta.path === slug);
+  const craft = allCrafts.find((craft) => craft.slug === slug);
 
   if (!craft?.mdx) {
     return notFound();

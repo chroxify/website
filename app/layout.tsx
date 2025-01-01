@@ -20,6 +20,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Christo Todorov",
   description: "Design engineer based in Berlin, Germany.",
+  openGraph: {
+    images: [
+      {
+        url: "/api/opengraph",
+        alt: "Christo Todorov",
+      },
+    ],
+  },
 };
 
 export default async function RootLayout({

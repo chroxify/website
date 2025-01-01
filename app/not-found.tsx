@@ -1,4 +1,17 @@
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Christo Todorov | 404",
+  openGraph: {
+    images: [
+      {
+        url: `/api/opengraph?title=${encodeURIComponent("404 - Not Found")}`,
+        alt: "Christo Todorov",
+      },
+    ],
+  },
+};
 
 export default function NotFound() {
   return (
