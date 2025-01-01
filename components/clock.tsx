@@ -13,7 +13,7 @@ export function Clock() {
 
   return (
     <NumberFlowGroup>
-      <span className="text-[13px] px-1.5 py-[2.53px] rounded-lg select-none">
+      <span className="text-[13px] select-none">
         <NumberFlow
           value={time.getHours() % 12 || 12}
           format={{ minimumIntegerDigits: 2 }}

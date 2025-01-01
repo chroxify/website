@@ -16,10 +16,15 @@ export async function logVisit() {
       },
       body: JSON.stringify({
         timestamp: new Date().toISOString(),
-        country: headersList.get("X-Vercel-IP-Country") ?? "Unknown",
-        country_region:
-          headersList.get("X-Vercel-IP-Country-Region") ?? "Unknown",
-        city: headersList.get("X-Vercel-IP-City") ?? "Unknown",
+        country: decodeURIComponent(
+          headersList.get("X-Vercel-IP-Country") ?? "Unknown"
+        ),
+        country_region: decodeURIComponent(
+          headersList.get("X-Vercel-IP-Country-Region") ?? "Unknown"
+        ),
+        city: decodeURIComponent(
+          headersList.get("X-Vercel-IP-City") ?? "Unknown"
+        ),
       }),
     }
   );
