@@ -135,7 +135,7 @@ export default function Waitlist() {
           disabled={isLoading || animate === "complete"}
         >
           <motion.div
-            className="flex flex-col gap-4 items-center translate-y-5"
+            className="flex flex-col gap-4 text-base items-center cursor-pointer"
             variants={animationVariants.buttonLabel}
           >
             <div className="inline-flex gap-2">
@@ -164,7 +164,7 @@ export default function Waitlist() {
         {/* Input */}
         <motion.input
           className={cn(
-            "w-full text-sm opacity-0 placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring ring-offset-1 transition-shadow ring-offset-background focus-visible:ring-1 absolute max-w-60 h-9 bg-secondary border border-input text-secondary-foreground rounded-xl mx-1 pl-2.5",
+            "w-full text-sm opacity-0 placeholder:text-muted-foreground focus-visible:outline-hidden focus-visible:ring-ring ring-offset-1 transition-shadow ring-offset-background focus-visible:ring-1 absolute max-w-60 h-9 bg-secondary border border-input text-secondary-foreground rounded-xl mx-1 pl-2.5",
             isLoading ? "pr-20" : "pr-[4.5rem]"
           )}
           type="email"

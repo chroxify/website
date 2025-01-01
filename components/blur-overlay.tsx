@@ -57,7 +57,6 @@ export function BlurOverlay() {
             rgba(255,255,255,${opacity * 0.4}) 0%,
             rgba(255,255,255,0) 100%
           )`,
-          filter: "blur(8px)",
         }}
       />
     </>

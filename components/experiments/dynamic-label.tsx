@@ -50,7 +50,7 @@ export default function DynamicInputLabel() {
         {/* Input */}
         <input
           className={cn(
-            "w-full text-sm placeholder:text-muted-foreground transition-all outline-none focus-visible:outline-none focus-visible:ring-ring ring-offset-1 ring-offset-background focus-visible:ring-1 max-w-60 h-full bg-secondary border border-input text-secondary-foreground rounded-xl pl-2.5"
+            "w-full text-sm placeholder:text-muted-foreground transition-all outline-hidden focus-visible:outline-hidden focus-visible:ring-ring ring-offset-1 ring-offset-background focus-visible:ring-1 max-w-60 h-full bg-secondary border border-input text-secondary-foreground rounded-xl pl-2.5"
           )}
           type="email"
           onFocus={() => setAnimate("focus")}

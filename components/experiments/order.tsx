@@ -197,7 +197,7 @@ export default function Order() {
       >
         {/* Header */}
         <motion.div
-          className="flex items-center justify-center w-full"
+          className="flex items-center text-base justify-center w-full"
           variants={animationVariants.buttonHeader}
         >
           <div className={cn(animate !== "click" && "hidden", "w-3.5")} />

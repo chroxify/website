@@ -43,7 +43,7 @@ export default async function RootLayout({
         className={`${geistSans.className} ${geistMono.variable} antialiased selection:bg-foreground/[7%]`}
       >
         <BlurOverlay />
-        <div className="grid grid-rows-[20px_1fr_20px] text-sm items-center justify-items-center min-h-[100dvh] p-4 py-20 sm:p-20 max-w-screen-md mx-auto w-full h-full md:border-x">
+        <div className="grid grid-rows-[20px_1fr_20px] text-sm items-center justify-items-center min-h-[100dvh] p-4 py-20 sm:p-20 max-w-(--breakpoint-md) mx-auto w-full h-full md:border-x">
           <header className="flex flex-row gap-2 flex-wrap items-start justify-between w-full">
             <Link href="/">
               <h1 className="font-semibold text-lg">Christo Todorov</h1>
@@ -54,8 +54,9 @@ export default async function RootLayout({
           </main>
           <footer className="row-start-3 text-[13px] flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between w-full text-muted-foreground">
             <span>
-              Last visitor from {lastVisitor?.city}, {lastVisitor?.country} (#
-              {lastVisitor?.total_visits})
+              Last visitor from {lastVisitor?.city},{" "}
+              {lastVisitor?.country_region}, {lastVisitor?.country} (
+              {lastVisitor?.total_visits}rd view)
             </span>
 
             <Clock />

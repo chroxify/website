@@ -107,7 +107,7 @@ export default function Home() {
       {/* Experiments */}
       <Section title="Experiments">
         <div className="relative w-full md:h-[150px] mt-4">
-          <div className="md:absolute md:left-1/2 md:-translate-x-1/2 flex flex-wrap md:flex-nowrap justify-center md:!gap-0 gap-4 md:-space-x-4">
+          <div className="md:absolute md:left-1/2 md:-translate-x-1/2 flex flex-wrap md:flex-nowrap justify-center md:gap-0! gap-4 md:-space-x-4">
             {allCrafts.map((craft, index) => (
               <Experiment
                 key={craft.slug}

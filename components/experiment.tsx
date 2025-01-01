@@ -15,7 +15,9 @@ export const Experiment = ({ image, path, index }: ExperimentProps) => {
     <Link
       href={path}
       className={`select-none size-28 lg:size-36 bg-background border rounded-lg overflow-hidden ${
-        index !== 0 ? "shadow-[-4px_0px_6px_rgba(0,0,0,0.04)]" : ""
+        index !== 0
+          ? "shadow-[-4px_0px_6px_rgba(0,0,0,0.04)]"
+          : "shadow-[-4px_0px_6px_rgba(0,0,0,0.04)] sm:shadow-transparent"
       } hover:shadow-[0_6px_12px_rgba(0,0,0,0.08)] transition-all duration-250 [transform:rotate(var(--rotation))] hover:[transform:rotate(var(--rotation))_translateY(-12px)]`}
       style={{ "--rotation": `${rotation}deg` } as React.CSSProperties}
     >

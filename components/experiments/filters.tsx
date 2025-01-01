@@ -23,6 +23,8 @@ function FilterItem({
     left: {
       borderTopLeftRadius: "0px",
       borderBottomLeftRadius: "0px",
+      borderTopRightRadius: "9999px",
+      borderBottomRightRadius: "9999px",
       marginLeft: "-14px",
       paddingLeft: "16px",
     },
@@ -38,6 +40,10 @@ function FilterItem({
     },
     single: {
       borderRadius: "9999px",
+      borderRightColor: "inherit",
+      borderLeftColor: "inherit",
+      marginLeft: "12px",
+      paddingLeft: "8px",
     },
   };
 
@@ -45,11 +51,11 @@ function FilterItem({
     <motion.button
       type="button"
       className={cn(
-        "px-2 h-8 rounded-full border inline-flex items-center  ml-3 justify-center text-sm text-secondary-foreground",
+        "px-2 h-8 rounded-full cursor-pointer border inline-flex items-center  ml-3 justify-center text-sm text-secondary-foreground",
         active ? "bg-secondary" : "bg-background text-muted-foreground",
         active &&
           isBound === "single" &&
-          "bg-secondary brightness-[.97] text-secondary-foreground border-muted dark:!border-muted",
+          "bg-secondary brightness-[.97] text-secondary-foreground border-muted dark:border-muted",
         className
       )}
       variants={variants}

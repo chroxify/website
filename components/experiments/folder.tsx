@@ -102,7 +102,7 @@ export default function Folder() {
   return (
     <ComponentWrapper>
       <motion.button
-        className="relative w-32 h-24 group rounded-lg"
+        className="relative w-32 h-24 group rounded-lg cursor-pointer"
         whileHover={animate === "rest" ? "hover" : undefined}
         whileFocus={animate === "rest" ? "hover" : undefined}
         animate={animate}
@@ -123,7 +123,7 @@ export default function Folder() {
       >
         {/* Folder Back */}
         <motion.div
-          className="bg-gradient-to-b rounded-tl-none top-2 from-[#218BCF] to-[#57ADDB] w-full h-2/3 rounded-lg absolute bottom-0"
+          className="bg-linear-to-b rounded-tl-none top-2 from-[#218BCF] to-[#57ADDB] w-full h-2/3 rounded-lg absolute bottom-0"
           variants={animationVariants.folderBack}
         />
         {/* Bumb on top */}
@@ -134,13 +134,13 @@ export default function Folder() {
         {/* Folder Front */}
         <div className="z-30 relative h-full w-full">
           <motion.div
-            className="absolute bottom-0 bg-gradient-to-b from-[#73D7FF] to-[#6BCBF3] w-3/4 h-[calc(90%-0.5rem)] rounded-l-lg flex flex-col-reverse overflow-hidden"
+            className="absolute bottom-0 bg-linear-to-b from-[#73D7FF] to-[#6BCBF3] w-3/4 h-[calc(90%-0.5rem)] rounded-l-lg flex flex-col-reverse overflow-hidden"
             variants={animationVariants.folderFrontLeft}
           >
             <FolderFrontStrips />
           </motion.div>
           <motion.div
-            className="absolute bottom-0 right-0 bg-gradient-to-b from-[#73D7FF] to-[#6BCBF3] w-3/4 h-[calc(90%-0.5rem)] rounded-r-lg flex flex-col-reverse overflow-hidden"
+            className="absolute bottom-0 right-0 bg-linear-to-b from-[#73D7FF] to-[#6BCBF3] w-3/4 h-[calc(90%-0.5rem)] rounded-r-lg flex flex-col-reverse overflow-hidden"
             variants={animationVariants.folderFrontRight}
           >
             <FolderFrontStrips />
