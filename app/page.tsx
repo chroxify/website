@@ -101,13 +101,14 @@ export default function Home() {
       </Section>
 
       {/* Contact */}
-      <Section title="Contact">
-        <div className="flex items-center justify-start gap-2">
-          <Social name="Mail" url="mailto:chroxify@gmail.com" />
-          <Social name="Twitter" url="https://twitter.com/chroxify" />
-          <Social name="GitHub" url="https://github.com/chroxify" />
-          <Social name="LinkedIn" url="https://linkedin.com/in/chroxify" />
-        </div>
+      <Section
+        title="Contact"
+        className="flex flex-row items-center justify-start gap-2"
+      >
+        <Social name="Mail" url="mailto:chroxify@gmail.com" />
+        <Social name="Twitter" url="https://twitter.com/chroxify" />
+        <Social name="GitHub" url="https://github.com/chroxify" />
+        <Social name="LinkedIn" url="https://linkedin.com/in/chroxify" />
       </Section>
     </>
   );

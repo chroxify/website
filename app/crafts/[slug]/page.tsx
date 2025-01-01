@@ -9,7 +9,7 @@ import Reaction from "@/components/experiments/reaction";
 import Waitlist from "@/components/experiments/waitlist";
 import { notFound } from "next/navigation";
 
-export const components = {
+const components = {
   Craft: {
     DynamicInputLabel: DynamicInputLabel,
     Carousel,
