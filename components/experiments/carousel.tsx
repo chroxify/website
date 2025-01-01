@@ -69,35 +69,37 @@ export default function Carousel() {
   return (
     <ComponentWrapper className="h-[450px]">
       {/* Carousel */}
-      <motion.div
-        className={cn(
-          "flex gap-2",
-          orientation === "horizontal" ? "flex-row" : "flex-col"
-        )}
-        animate="animate"
-        variants={variants.Carousel}
-      >
-        {IMAGES.map((image, index) => (
-          <motion.img
-            draggable="false"
-            key={index}
-            src={image}
-            animate={focusedIndex === index ? "focused" : "notFocused"}
-            variants={variants.Image}
-            alt={`Image ${index}`}
-            onClick={() => setFocusedIndex(index)}
-            className={cn(
-              "rounded-sm h-[200px] min-w-[200px] w-[200px] select-none",
-              focusedIndex !== index && "cursor-pointer",
-              orientation === "horizontal" &&
-                focusedIndex !== index &&
-                focusedIndex !== CENTER_INDEX &&
-                (focusedIndex - 1 !== index || focusedIndex + 1 !== index) &&
-                (focusedIndex > CENTER_INDEX ? "-ml-[24px]" : "-mr-[24px]")
-            )}
-          />
-        ))}
-      </motion.div>
+      <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
+        <motion.div
+          className={cn(
+            "flex gap-2 absolute",
+            orientation === "horizontal" ? "flex-row" : "flex-col"
+          )}
+          animate="animate"
+          variants={variants.Carousel}
+        >
+          {IMAGES.map((image, index) => (
+            <motion.img
+              draggable="false"
+              key={index}
+              src={image}
+              animate={focusedIndex === index ? "focused" : "notFocused"}
+              variants={variants.Image}
+              alt={`Image ${index}`}
+              onClick={() => setFocusedIndex(index)}
+              className={cn(
+                "rounded-sm h-[200px] min-w-[200px] w-[200px] select-none",
+                focusedIndex !== index && "cursor-pointer",
+                orientation === "horizontal" &&
+                  focusedIndex !== index &&
+                  focusedIndex !== CENTER_INDEX &&
+                  (focusedIndex - 1 !== index || focusedIndex + 1 !== index) &&
+                  (focusedIndex > CENTER_INDEX ? "-ml-[24px]" : "-mr-[24px]")
+              )}
+            />
+          ))}
+        </motion.div>
+      </div>
 
       {/* Indicator */}
       <div
