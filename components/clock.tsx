@@ -34,7 +34,9 @@ export function Clock() {
         <NumberFlow
           value={time.getSeconds()}
           format={{ minimumIntegerDigits: 2 }}
-          suffix={` ${time.getHours() >= 12 ? "PM" : "AM"} (UTC+1)`}
+          suffix={` ${time.getHours() >= 12 ? "PM" : "AM"} (UTC${
+            time.getTimezoneOffset() / -60 >= 0 ? "+" : ""
+          }${time.getTimezoneOffset() / -60})`}
         />
       </span>
     </NumberFlowGroup>
