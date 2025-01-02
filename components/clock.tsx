@@ -2,6 +2,7 @@
 
 import NumberFlow, { NumberFlowGroup } from "@number-flow/react";
 import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 
 const style = {
   "--number-flow-char-height": "1em",
@@ -9,16 +10,31 @@ const style = {
 
 export function Clock() {
   const [time, setTime] = useState(new Date());
+  const [isSafari, setIsSafari] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000);
+    // Safari detection
+    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const berlinTime = new Date().toLocaleString("en-US", {
+        timeZone: "Europe/Berlin",
+      });
+      setTime(new Date(berlinTime));
+    }, 1000);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <NumberFlowGroup>
       <span
-        className="text-[13px] [&_number-flow-react::part(suffix)]:align-middle [&_number-flow-react::part(suffix)]:inline-flex"
+        className={cn(
+          "text-[13px]",
+          isSafari &&
+            "[&_number-flow-react::part(suffix)]:align-middle [&_number-flow-react::part(suffix)]:inline-flex"
+        )}
         style={style}
       >
         <NumberFlow
