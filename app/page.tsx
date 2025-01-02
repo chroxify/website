@@ -24,12 +24,13 @@ export default function Home() {
           >
             Superwall
           </a>{" "}
-          where I focus on delivering polished user interfaces and creating
-          exceptional user experiences.
+          where I focus on delivering polished interfaces and creating refined
+          web experiences with an emphasis on performance, accessibility, and
+          attention to detail.
         </span>
 
         <span className="block">
-          Outside of work, I enjoy learning new skills, skiing and building
+          Outside of work, I enjoy learning new skills, skiing, and building
           (mostly open source) software.
         </span>
       </p>
@@ -40,12 +41,12 @@ export default function Home() {
           name="Superwall"
           href="https://superwall.com"
           period={{ start: "2024", end: "Present" }}
-          description="Designing & developing features for the dashboard and paywalls."
+          description="Designing & developing features for the dashboard, editor, and paywalls."
         />
 
         <Experience
           name="Freelance & Open Source"
-          period={{ start: "2022", end: "Present" }}
+          period={{ start: "2020", end: "Present" }}
           description="Various client projects, open-source contributions, and side projects."
         />
       </Section>
