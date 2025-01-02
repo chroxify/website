@@ -161,6 +161,10 @@ export default function QuickReaction() {
             style={{
               left: -5,
               top: -16,
+              transformOrigin: "center center",
+              willChange: "transform",
+              WebkitBackfaceVisibility: "hidden",
+              WebkitTransform: "translateZ(0)",
             }}
           >
             {div.icon}

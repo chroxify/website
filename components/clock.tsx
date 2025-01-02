@@ -3,6 +3,10 @@
 import NumberFlow, { NumberFlowGroup } from "@number-flow/react";
 import { useState, useEffect } from "react";
 
+const style = {
+  "--number-flow-char-height": "1em",
+} as React.CSSProperties;
+
 export function Clock() {
   const [time, setTime] = useState(new Date());
 
@@ -13,7 +17,10 @@ export function Clock() {
 
   return (
     <NumberFlowGroup>
-      <span className="text-[13px]">
+      <span
+        className="text-[13px] [&_number-flow-react::part(suffix)]:align-middle [&_number-flow-react::part(suffix)]:inline-flex"
+        style={style}
+      >
         <NumberFlow
           value={time.getHours() % 12 || 12}
           format={{ minimumIntegerDigits: 2 }}

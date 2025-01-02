@@ -24,6 +24,7 @@ export const Experiment = ({ image, path, index }: ExperimentProps) => {
       <Image
         src={image}
         alt={path}
+        priority
         fill
         className="object-cover object-left"
         draggable={false}

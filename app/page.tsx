@@ -76,8 +76,7 @@ export default function Home() {
           year={2023}
           description={
             <>
-              Supafork is Vercel's one-click deploy button for Supabase
-              databases. It won{" "}
+              Vercel's one-click deploy button for Supabase databases. Won{" "}
               <a
                 href="https://supabase.com/blog/launch-week-x-hackathon-winners#best-overall-project"
                 className="underline underline-offset-2 decoration-foreground/30 hover:opacity-70 transition-all"
@@ -94,7 +93,7 @@ export default function Home() {
           name="NameGPT"
           href="https://namegpt.chroxify.com"
           year={2023}
-          description="A simple tool to generate names based on your project description."
+          description="Simple tool to generate names based on your project description."
         />
         <Project
           name="Sherlock Web"
@@ -106,8 +105,8 @@ export default function Home() {
 
       {/* Experiments */}
       <Section title="Experiments">
-        <div className="relative w-full md:h-[150px] mt-4">
-          <div className="md:absolute md:left-1/2 md:-translate-x-1/2 flex flex-wrap md:flex-nowrap justify-center md:gap-0! gap-4 md:-space-x-4">
+        <div className="relative w-full md:h-[150px] mt-2 -ml-2.5 sm:ml-0">
+          <div className="md:absolute md:left-1/2 md:-translate-x-1/2 flex flex-wrap gap-x-0 md:flex-nowrap justify-center md:gap-0! gap-4 -space-x-4">
             {allCrafts.map((craft, index) => (
               <Experiment
                 key={craft.slug}
