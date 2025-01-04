@@ -1,27 +1,24 @@
-import Carousel from "@/components/crafts/carousel/carousel";
-import Filters from "@/components/crafts/filters/filters";
-import Folder from "@/components/crafts/folder/folder";
-import Order from "@/components/crafts/order/order";
-import DynamicInputLabel from "@/components/crafts/dynamic-label/dynamic-label";
-import QuickReaction from "@/components/crafts/reaction/reaction";
-import Waitlist from "@/components/crafts/waitlist/waitlist";
-import { allCrafts } from "contentlayer/generated";
-import type { MDXComponents } from "mdx/types";
-import { Metadata } from "next";
-import { useMDXComponent } from "next-contentlayer/hooks";
-import Link from "next/link";
+import { allCrafts } from "content-collections";
+import { MDXContent } from "@content-collections/mdx/react";
+import DynamicInputLabel from "@/components/experiments/dynamic-label";
+import Carousel from "@/components/experiments/carousel";
+import Filters from "@/components/experiments/filters";
+import Folder from "@/components/experiments/folder";
+import Order from "@/components/experiments/order";
+import Reaction from "@/components/experiments/reaction";
+import Waitlist from "@/components/experiments/waitlist";
 import { notFound } from "next/navigation";
+import { Metadata } from "next/types";
 
 type Props = {
-  params: { slug: string };
-  // searchParams: { [key: string]: string | string[] | undefined }
+  params: Promise<{
+    slug: string;
+  }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // Find the craft for the current page.
-  const craft = allCrafts.find(
-    (craft) => craft._raw.flattenedPath === params.slug
-  );
+  const { slug } = await params;
+  const craft = allCrafts.find((craft) => craft.slug === slug);
 
   if (!craft) notFound();
 
@@ -30,64 +27,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       images: [
         {
-          url: `/crafts/${craft._raw.flattenedPath}/opengraph.png`,
+          url: `/api/opengraph?title=${encodeURIComponent(craft.title)}`,
+          alt: craft.title,
         },
       ],
     },
   };
 }
 
-// Custom MDX components
-const mdxComponents: MDXComponents = {
-  a: (
-    { href, children }: any // eslint-disable-line
-  ) => (
-    <Link
-      href={href as string}
-      className="text-foreground hover:underline transition-all"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {children}
-    </Link>
-  ),
-  p: (
-    { children }: any // eslint-disable-line
-  ) => <p className="text-secondary-foreground">{children}</p>,
+const components = {
   Craft: {
+    DynamicInputLabel: DynamicInputLabel,
+    Carousel,
+    Filters,
     Folder,
     Order,
+    QuickReaction: Reaction,
     Waitlist,
-    Filters,
-    Carousel,
-    QuickReaction,
-    DynamicInputLabel,
   },
 };
 
-export default async function Page({ params }: Props) {
-  // Find the craft for the current page.
-  const craft = allCrafts.find(
-    (craft) => craft._raw.flattenedPath === params.slug
-  );
+export default async function CraftPage({ params }: Props) {
+  const { slug } = await params;
+  const craft = allCrafts.find((craft) => craft.slug === slug);
 
-  // 404 if the craft does not exist.
-  if (!craft) notFound();
-
-  // Parse the MDX file via the useMDXComponent hook.
-  const MDXContent = useMDXComponent(craft.body.code);
+  if (!craft?.mdx) {
+    return notFound();
+  }
 
   return (
-    <div className="flex flex-col gap-5">
-      <div className="w-full">
-        <h2>{craft.title}</h2>
-        <p className="text-muted-foreground text-sm">
-          {new Date(craft.date).toLocaleDateString()}
+    <div className="w-full h-full flex flex-col gap-4 [&_a]:underline [&_a]:underline-offset-2 [&_a]:decoration-foreground/30 [&_a:hover]:opacity-70 [&_a]:transition-all">
+      <div className="flex flex-col">
+        <h2 className="font-medium">{craft.title}</h2>
+        <p className="text-muted-foreground">
+          {craft.date.toLocaleDateString()}
         </p>
       </div>
-      <div className="space-y-5 w-full">
-        <MDXContent components={mdxComponents} />
-      </div>
+
+      <MDXContent code={craft?.mdx} components={components as any} />
     </div>
   );
 }

@@ -1,79 +1,81 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Analytics } from "@vercel/analytics/react";
-import { Newsreader } from "next/font/google";
-import { cn } from "@/lib/utils";
-import Quote from "@/components/quote";
-import LocalTime from "@/components/time";
 import Link from "next/link";
+import { getLastVisitor, logVisit } from "@/lib/tinybird";
+import { Clock } from "@/components/clock";
+import { BlurOverlay } from "@/components/blur-overlay";
 import Script from "next/script";
+import { getOrdinalSuffix } from "@/lib/utils";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Christo Todorov",
-  description: "Crafting code & drawing pixels.",
-  metadataBase: new URL("https://chroxify.com"),
+  description: "Design engineer based in Berlin, Germany.",
   openGraph: {
     images: [
       {
-        url: "/api/og",
+        url: "/api/opengraph",
         alt: "Christo Todorov",
       },
     ],
   },
 };
 
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-});
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  logVisit();
+  const lastVisitor = await getLastVisitor();
+
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={GeistSans.className}>
-        <Analytics />
-        {process.env.NODE_ENV === "production" && (
-          <Script
-            src="https://cdn.seline.so/seline.js"
-            data-token="52947f744a8a4fa"
-            async
-          />
-        )}
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="bg-background flex overflow-y-auto items-center px-5 gap-3 sm:px-24 h-[calc(100dvh)] justify-center selection:text-primary-foreground selection:bg-primary">
-            {/* Max width container */}
-            <div className="flex flex-col justify-between h-full w-full gap-10 max-w-2xl">
-              <div className="space-y-10">
-                {/* Header */}
-                <header className="transition-all animate-enter inline-flex flex-col pt-5 sm:pt-24 w-full">
-                  <Link href="/">Christo Todorov</Link>
-                  <span
-                    className={cn(
-                      newsreader.className,
-                      "text-secondary-foreground "
-                    )}
-                  >
-                    Crafting code & drawing pixels.
-                  </span>
-                </header>
-                <main className="flex flex-col gap-10 w-full h-fit">
-                  {children}
-                </main>
-              </div>
-              {/* Footer */}
-              <div className="w-full max-w-2xl justify-between flex items-start pt-2 animate-enter delay-200 min-h-[50px] sm:min-h-[116px]">
-                <Quote />
-                <LocalTime />
-              </div>
-            </div>
-          </div>
-        </ThemeProvider>
+    <html lang="en">
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+        <Script
+          src="https://cdn.seline.so/seline.js"
+          data-token={process.env.SELINE_TOKEN}
+          strategy="afterInteractive"
+        />
+      </head>
+      <body
+        className={`${geistSans.className} ${geistMono.variable} antialiased selection:bg-foreground/[7%]`}
+      >
+        <BlurOverlay />
+        <div className="grid grid-rows-[20px_1fr_20px] text-sm items-center justify-items-center min-h-[100dvh] p-4 py-20 sm:p-20 max-w-(--breakpoint-md) mx-auto w-full h-full md:border-x">
+          <header className="flex flex-row gap-2 flex-wrap items-start justify-between w-full">
+            <Link href="/">
+              <h1 className="font-semibold text-lg">Christo Todorov</h1>
+            </Link>
+          </header>
+          <main className="w-full h-full flex flex-col gap-12 mt-20 mb-2 sm:mb-0">
+            {children}
+          </main>
+          <footer className="row-start-3 text-[13px] flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between w-full text-muted-foreground">
+            <span>
+              Last visitor from {lastVisitor?.city},{" "}
+              {lastVisitor?.country_region}, {lastVisitor?.country} (
+              {lastVisitor?.total_visits}
+              {getOrdinalSuffix(lastVisitor?.total_visits || 0)} view)
+            </span>
+
+            <Clock />
+          </footer>
+        </div>
       </body>
     </html>
   );

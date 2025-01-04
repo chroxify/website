@@ -1,20 +1,27 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Christo Todorov | 404",
+  openGraph: {
+    images: [
+      {
+        url: `/api/opengraph?title=${encodeURIComponent("404 - Not Found")}`,
+        alt: "Christo Todorov",
+      },
+    ],
+  },
 };
 
 export default function NotFound() {
   return (
-    <div className="h-full text-secondary-foreground justify-center flex flex-col gap-3">
-      <span className="animate-enter delay-75">
-        404 - Page not found. Looks like you&apos;re lost.
-      </span>
+    <div className="flex flex-col gap-2">
+      <p>Whoops! Could not find the page you were looking for.</p>
       <Link
         href="/"
-        className="text-foreground hover:underline animate-enter delay-100"
+        className="underline underline-offset-2 decoration-foreground/30 hover:opacity-70 transition-all"
       >
-        Want to go back home?
+        Go back home
       </Link>
     </div>
   );
