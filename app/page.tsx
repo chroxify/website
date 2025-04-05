@@ -54,6 +54,12 @@ export default function Home() {
       {/* Projects */}
       <Section title="Projects">
         <Project
+          name="TinyQRC"
+          href="https://tinyqrc.com"
+          year={2025}
+          description="A dead-simple, fast and free QR Code API for developers."
+        />
+        <Project
           name="Haptic"
           href="https://haptic.md"
           year={2024}
