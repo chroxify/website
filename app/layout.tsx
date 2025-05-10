@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Link from "next/link";
 import { getLastVisitor, logVisit } from "@/lib/tinybird";
@@ -55,6 +56,8 @@ export default async function RootLayout({
       <body
         className={`${geistSans.className} ${geistMono.variable} antialiased selection:bg-foreground/[7%]`}
       >
+        {/* Vercel analytics */}
+        <Analytics />
         <BlurOverlay />
         <div className="grid grid-rows-[20px_1fr_20px] text-sm items-center justify-items-center min-h-[100dvh] p-4 py-20 sm:p-20 max-w-(--breakpoint-md) mx-auto w-full h-full md:border-x">
           <header className="flex flex-row gap-2 flex-wrap items-start justify-between w-full">
