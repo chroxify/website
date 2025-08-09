@@ -60,6 +60,12 @@ export default function Home() {
           description="A dead-simple nutrition tracker for iOS - less is more."
         />
         <Project
+          name="json.cf"
+          href="https://json.cf"
+          year={2025}
+          description="A lightweight, low-latency JSON config API at the edge."
+        />
+        <Project
           name="TinyQRC"
           href="https://tinyqrc.com"
           year={2025}
