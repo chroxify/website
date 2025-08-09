@@ -54,6 +54,12 @@ export default function Home() {
       {/* Projects */}
       <Section title="Projects">
         <Project
+          name="Numa"
+          href="https://apps.apple.com/app/id6748286183"
+          year={2025}
+          description="A dead-simple nutrition tracker for iOS - less is more."
+        />
+        <Project
           name="TinyQRC"
           href="https://tinyqrc.com"
           year={2025}
