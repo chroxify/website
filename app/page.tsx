@@ -63,7 +63,7 @@ export default function Home() {
           name="Numa"
           href="https://apps.apple.com/app/id6748286183"
           year={2025}
-          description="A dead-simple nutrition tracker for iOS - less is more."
+          description="A dead-simple nutrition tracker for iOS - sometimes less is more."
         />
         <Project
           name="json.cf"
