@@ -41,13 +41,19 @@ export default function Home() {
           name="Superwall"
           href="https://superwall.com"
           period={{ start: "2024", end: "Present" }}
-          description="Designing & developing features for the dashboard, editor, and paywalls."
+          description='Building and polishing the "Figma for mobile apps", with A/B testing & fully customizable remote paywalls, helping 4,000+ apps grow their revenue across 2B+ users.'
+        />
+
+        <Experience
+          name="Awwwards Young Jury Member"
+          period={{ start: "2025", end: "Present" }}
+          description="Evaluating and celebrating the best in web design and development as a member of the [Awwwards Young Jury](https://www.awwwards.com/jury-member/chroxify)."
         />
 
         <Experience
           name="Freelance & Open Source"
           period={{ start: "2020", end: "Present" }}
-          description="Various client projects, open-source contributions, and side projects."
+          description="Various web & mobile client projects, open-source contributions, and side projects."
         />
       </Section>
 
