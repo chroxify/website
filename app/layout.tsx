@@ -1,15 +1,32 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import Link from "next/link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const openRunde = localFont({
+  src: [
+    {
+      path: "../public/fonts/OpenRunde-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/OpenRunde-Medium.woff2",
+      weight: "500",
+      style: "medium",
+    },
+    {
+      path: "../public/fonts/OpenRunde-SemiBold.woff2",
+      weight: "600",
+      style: "semi-bold",
+    },
+    {
+      path: "../public/fonts/OpenRunde-Bold.woff2",
+      weight: "700",
+      style: "bold",
+    },
+  ],
+  variable: "--font-open-runde",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +41,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${openRunde.className} antialiased`}>
+        <div className="flex flex-col max-w-3xl mx-auto gap-10 p-4 py-12 sm:p-20">
+          <header className="w-full">
+            <Link href="/" passHref>
+              <h1 className="text-lg font-semibold">Christo Todorov</h1>
+            </Link>
+            <span className="text-secondary-foreground font-medium">
+              Design Engineer
+            </span>
+          </header>
+          <div className="w-full">{children}</div>
+        </div>
       </body>
     </html>
   );
