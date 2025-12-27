@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Numa } from "./projects/numa";
 import { Haptic } from "./projects/haptic";
+import { TinyQRC } from "./projects/tinyqrc";
 
 const tabs = [
   {
@@ -61,6 +62,7 @@ function ProjectList() {
     <div className="flex flex-col gap-2 w-[calc(100%+40px)] -mx-4">
       <Numa />
       <Haptic />
+      <TinyQRC />
     </div>
   );
 }
