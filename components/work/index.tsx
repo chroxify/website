@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Numa } from "./projects/numa";
 import { Haptic } from "./projects/haptic";
 import { TinyQRC } from "./projects/tinyqrc";
+import { Feedbase } from "./projects/feedbase";
 
 const tabs = [
   {
@@ -63,6 +64,7 @@ function ProjectList() {
       <Numa />
       <Haptic />
       <TinyQRC />
+      <Feedbase />
     </div>
   );
 }
