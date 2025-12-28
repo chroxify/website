@@ -6,6 +6,7 @@ import { Numa } from "./projects/numa";
 import { Haptic } from "./projects/haptic";
 import { TinyQRC } from "./projects/tinyqrc";
 import { Feedbase } from "./projects/feedbase";
+import { Supafork } from "./projects/supafork";
 
 const tabs = [
   {
@@ -65,6 +66,7 @@ function ProjectList() {
       <Haptic />
       <TinyQRC />
       <Feedbase />
+      <Supafork />
     </div>
   );
 }
