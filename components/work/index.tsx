@@ -8,6 +8,7 @@ import { TinyQRC } from "./projects/tinyqrc";
 import { Feedbase } from "./projects/feedbase";
 import { Supafork } from "./projects/supafork";
 import { NameGPT } from "./projects/namegpt";
+import { OTPInbox } from "./projects/otp-inbox";
 
 const tabs = [
   {
@@ -69,6 +70,7 @@ function ProjectList() {
       <Feedbase />
       <Supafork />
       <NameGPT />
+      <OTPInbox />
     </div>
   );
 }
