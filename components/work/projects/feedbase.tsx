@@ -23,7 +23,7 @@ function HoverContent() {
     <>
       {/* Left side - stacked images */}
       {/* Background image (feedback) */}
-      <motion.div
+      {/* <motion.div
         className="absolute pointer-events-none left-0"
         initial={{ scale: 0, opacity: 0 }}
         animate={{
@@ -49,10 +49,9 @@ function HoverContent() {
             }}
           />
         </div>
-      </motion.div>
-
+      </motion.div> */}
       {/* Foreground image (roadmap) */}
-      <motion.div
+      {/* <motion.div
         className="absolute pointer-events-none left-0"
         initial={{ scale: 0, opacity: 0 }}
         animate={{
@@ -78,7 +77,7 @@ function HoverContent() {
             }}
           />
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Right side - stacked images */}
       {/* Background image (public) */}
@@ -87,7 +86,7 @@ function HoverContent() {
         initial={{ scale: 0, opacity: 0 }}
         animate={{
           scale: isHovered ? 1 : 0.35,
-          rotate: isHovered ? 8 : -8,
+          rotate: isHovered ? 2 : -8,
           right: isHovered ? "-75%" : "0%",
           top: isHovered ? "-140%" : "-50%",
           opacity: isHovered ? 1 : 0,
@@ -109,14 +108,13 @@ function HoverContent() {
           />
         </div>
       </motion.div>
-
       {/* Foreground image (dashboard) */}
       <motion.div
         className="absolute pointer-events-none right-0"
         initial={{ scale: 0, opacity: 0 }}
         animate={{
           scale: isHovered ? 1 : 0.35,
-          rotate: isHovered ? 8 : -8,
+          rotate: isHovered ? 2 : -8,
           right: isHovered ? "-70%" : "0%",
           top: isHovered ? "-80%" : "-50%",
           opacity: isHovered ? 1 : 0,
@@ -138,7 +136,6 @@ function HoverContent() {
           />
         </div>
       </motion.div>
-
       {/* Upvote button - positioned below right images, higher up */}
       <motion.div
         className="absolute pointer-events-none right-0 z-10"
@@ -157,7 +154,6 @@ function HoverContent() {
           Upvote
         </div>
       </motion.div>
-
       {/* Post Feedback button - positioned below Upvote, cascading down-left */}
       <motion.div
         className="absolute pointer-events-none right-0"
@@ -176,7 +172,6 @@ function HoverContent() {
           Post Feedback
         </div>
       </motion.div>
-
       {/* Read Changelog button - positioned below Post Feedback */}
       <motion.div
         className="absolute pointer-events-none right-0"

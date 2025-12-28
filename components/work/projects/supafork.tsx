@@ -87,7 +87,7 @@ function HoverContent() {
       </motion.div>
 
       {/* Launch Week Winner badge - near image */}
-      <motion.div
+      {/* <motion.div
         className="absolute pointer-events-none right-0 z-20"
         initial={{ scale: 0, opacity: 0 }}
         animate={{
@@ -127,7 +127,7 @@ function HoverContent() {
             </span>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Fork Database button with fade */}
       <motion.div
@@ -135,7 +135,7 @@ function HoverContent() {
         initial={{ scale: 0, opacity: 0 }}
         animate={{
           scale: isHovered ? 1 : 0.35,
-          rotate: isHovered ? -8 : 8,
+          rotate: isHovered ? 16 : 8,
           right: isHovered ? "-30%" : "0%",
           top: isHovered ? "90%" : "0%",
           opacity: isHovered ? 1 : 0,

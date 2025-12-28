@@ -9,6 +9,7 @@ import { Feedbase } from "./projects/feedbase";
 import { Supafork } from "./projects/supafork";
 import { NameGPT } from "./projects/namegpt";
 import { OTPInbox } from "./projects/otp-inbox";
+import { SherlockWeb } from "./projects/sherlock-web";
 
 const tabs = [
   {
@@ -71,6 +72,7 @@ function ProjectList() {
       <Supafork />
       <NameGPT />
       <OTPInbox />
+      <SherlockWeb />
     </div>
   );
 }
