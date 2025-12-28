@@ -7,6 +7,7 @@ import { Haptic } from "./projects/haptic";
 import { TinyQRC } from "./projects/tinyqrc";
 import { Feedbase } from "./projects/feedbase";
 import { Supafork } from "./projects/supafork";
+import { NameGPT } from "./projects/namegpt";
 
 const tabs = [
   {
@@ -67,6 +68,7 @@ function ProjectList() {
       <TinyQRC />
       <Feedbase />
       <Supafork />
+      <NameGPT />
     </div>
   );
 }
