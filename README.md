@@ -7,7 +7,7 @@ Built with Next.js, TypeScript, Tailwind CSS, and hosted on Vercel.
 1, Clone the repository:
 
 ```bash
-git clone https://github.com/chroline/website.git
+git clone https://github.com/chroxify/website.git
 ```
 
 2. Install dependencies:
