@@ -69,7 +69,7 @@ export default function Home() {
           name="Kodama"
           href="https://kodama.sh"
           year={2026}
-          description="Open-source avatar system that generates unique, animated characters from any string."
+          description="Open-source animated avatar system that generates unique, living characters from any string."
         />
         <Project
           name="Numa"
