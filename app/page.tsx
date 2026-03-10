@@ -60,6 +60,18 @@ export default function Home() {
       {/* Projects */}
       <Section title="Projects">
         <Project
+          name="Icon Museum"
+          href="https://icon.museum"
+          year={2026}
+          description="A curated gallery of beautifully designed app icons from iOS and macOS."
+        />
+        <Project
+          name="Kodama"
+          href="https://kodama.sh"
+          year={2026}
+          description="Open-source avatar system that generates unique, animated characters from any string."
+        />
+        <Project
           name="Numa"
           href="https://apps.apple.com/app/id6748286183"
           year={2025}
