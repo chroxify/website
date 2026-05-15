@@ -60,6 +60,12 @@ export default function Home() {
       {/* Projects */}
       <Section title="Projects">
         <Project
+          name="Typefit"
+          href="https://typefit.chroxify.com"
+          year={2026}
+          description="A tiny utility that automatically adjusts text to fit any web container."
+        />
+        <Project
           name="Icon Museum"
           href="https://icon.museum"
           year={2026}
